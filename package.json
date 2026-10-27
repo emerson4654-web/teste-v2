@@ -1,8 +1,0 @@
-{
-  "name": "eb-manager-verificacao",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Portal com verificação de identidade Roblox por bio, executado em servidor Node.js",
-  "scripts": { "start": "node server.js" },
-  "engines": { "node": ">=18.17.0" }
-}
