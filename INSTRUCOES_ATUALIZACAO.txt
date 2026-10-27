@@ -1,0 +1,53 @@
+EB MANAGER — ATUALIZAÇÃO DE LOGIN PERSISTENTE + CDP
+===================================================
+
+O QUE ESTA VERSÃO INCLUI
+- Botão visível “Sair” no painel. Ele remove a sessão do navegador e do armazenamento do servidor.
+- Login renovável de longa duração (10 anos, renovado a cada uso) até o usuário clicar em Sair ou apagar os dados/cookies do navegador.
+- Sessões guardadas em sessoes.json na pasta de dados configurada.
+- Página Capacitação (CDP): mostra o progresso do próprio militar e permite que cargos autorizados creditem horas, definam/retirem o status Em CDP e registrem observações.
+- A promoção é bloqueada se o militar estiver com status Em CDP.
+- Intervalo global de 30 minutos entre promoções reais, persistido em promocao-cooldown.json.
+- API de leitura do CDP para o servidor do jogo, protegida por uma chave compartilhada.
+- Script Roblox CDP_Roblox_Server.lua: cria um TextLabel na interface do jogador e atualiza o texto a cada 60 segundos.
+- Campos de observações sem maxlength artificial; seguem limites técnicos de tamanho de requisição e da imagem por segurança.
+- Arquivos do pacote na raiz, sem subpastas.
+
+PUBLICAR NO RENDER
+1. Substitua no GitHub os arquivos deste ZIP pelos correspondentes no repositório (todos na raiz).
+2. Use Web Service, Runtime Node, Build Command: npm install e Start Command: npm start.
+3. Configure estas variáveis de ambiente:
+   EB_GROUP_ID=13616747
+   ROBLOX_OPEN_CLOUD_API_KEY= SUA_CHAVE_OPEN_CLOUD (para alterações reais de cargos)
+   ROBLOX_CDP_API_KEY= SUA_CHAVE_SECRETA_CDP (nova chave compartilhada com o Script Roblox)
+   EB_DATA_DIR=/var/data (quando tiver adicionado um disco persistente montado em /var/data)
+4. Gere uma chave secreta CDP longa e aleatória, por exemplo rodando localmente:
+   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+5. Copie o resultado para ROBLOX_CDP_API_KEY no Render. Use exatamente o mesmo valor na variável CDP_API_KEY do Script CDP_Roblox_Server.lua.
+6. A chave Open Cloud e a chave CDP são diferentes. Nunca coloque a chave Open Cloud no jogo ou no navegador.
+
+SESSÃO LONGA / ARMAZENAMENTO PERSISTENTE
+- O login fica ativo e a validade se renova ao usar o site. O botão Sair encerra a sessão.
+- Para manter sessões, horas CDP e registros depois de redeploys/reinícios no Render, conecte um disco persistente ao serviço com caminho de montagem /var/data e defina EB_DATA_DIR=/var/data. Sem disco persistente, o sistema de arquivos do Render é efêmero e dados locais podem ser perdidos em redeploys/reinícios.
+- A validade “infinita” não é literalmente infinita: o cookie é renovado a cada uso e pode ser removido pelo usuário ou pelo navegador. O botão Sair revoga a sessão no servidor.
+
+ROBLOX STUDIO — COLOCAR A ETIQUETA CDP
+1. Abra a experiência no Roblox Studio.
+2. Vá em Game Settings > Security e ative Allow HTTP Requests.
+3. Crie um Script em ServerScriptService chamado CDP_Roblox_Server.
+4. Copie todo o conteúdo de CDP_Roblox_Server.lua para esse Script.
+5. Troque https://SEU-SERVICO.onrender.com pelo endereço real do seu Web Service do Render, mantendo /api/roblox/cdp no fim.
+6. Troque COLOQUE_A_MESMA_CHAVE_SECRETA_DO_RENDER_AQUI pelo valor exato de ROBLOX_CDP_API_KEY.
+7. Publique a experiência e teste com uma conta que esteja no grupo EB 13616747.
+
+COMO O VALOR CDP É DEFINIDO
+- O rótulo exibe as horas creditadas no painel / horas exigidas pela patente atual.
+- O tempo online no jogo não é automaticamente contado como treinamento. Um usuário autorizado deve creditar as horas na página Capacitação (CDP).
+- A tabela implementada usa os requisitos informados: Recruta 3h, Cabo 6h, Terceiro Sargento 9h, Segundo Sargento 12h, Primeiro Sargento 15h, Subtenente 18h, Cadete 21h, Aspirante 24h, Segundo Tenente 27h, Primeiro Tenente 30h, Capitão 33h, Major 36h, Tenente Coronel 39h, Coronel 42h, General de Brigada 45h, General de Divisão 48h, General do Exército 51h, Vice Presidente 54h, Presidente 57h, Marechal 60h, Elite Militar 63h, Elite Secreta 66h, Elite Real 69h, Sub Comandante 72h e Comandante 72h.
+- Cargos não cobertos pela tabela mostram “requisito não definido” até você confirmar um valor.
+
+LIMITAÇÕES IMPORTANTES
+- A chave ROBLOX_CDP_API_KEY autentica o script do servidor Roblox perante o site. Mantenha-a somente em Script dentro de ServerScriptService, nunca em LocalScript/StarterGui.
+- Alterar cargos no Roblox só funciona quando ROBLOX_OPEN_CLOUD_API_KEY tem as permissões de grupo necessárias.
+- A lista de cargos enviada mostrou rank=1 para muitos cargos. Confirme a hierarquia de promoções antes de usar promoções reais.
+- Esta versão implementa a tela CDP, o armazenamento de horas/status e o endpoint de leitura para o jogo; não registra automaticamente o tempo de jogo como CDP.
