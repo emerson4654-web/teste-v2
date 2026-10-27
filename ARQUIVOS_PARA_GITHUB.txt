@@ -1,0 +1,16 @@
+EB MANAGER — COMO ENVIAR OS ARQUIVOS
+
+1. Faça um backup do seu repositório atual do GitHub.
+2. Extraia todos os arquivos deste ZIP no computador.
+3. Envie os arquivos para a RAIZ do repositório GitHub (não envie o ZIP como um único arquivo).
+4. Substitua os arquivos de código com o mesmo nome: server.js, index.html, dashboard.html, package.json, cargos_eb.json e divisoes.json.
+5. Envie também render.yaml, CDP_Roblox_Server.lua e os arquivos de instrução. Mantenha as imagens incluídas.
+6. NÃO substitua ou apague arquivos de dados que já contenham informações reais: cdp.json, treinamentos.json, promocoes.json, historico-divisoes.json, promocao-cooldown.json e sessoes.json. Faça backup deles.
+7. Faça commit das alterações. Se o Render estiver conectado ao repositório com deploy automático, ele iniciará um novo deploy.
+
+IMPORTANTE
+- Nunca adicione chaves privadas ao GitHub.
+- render.yaml é uma configuração-base para criar um Web Service. Se você já tem um serviço Render, pode manter o serviço existente e conferir as configurações nas instruções.
+- A chave ROBLOX_OPEN_CLOUD_API_KEY vai somente em Environment no Render.
+- A chave ROBLOX_CDP_API_KEY deve ser secreta, igual à chave que você colocar no Script de servidor do Roblox Studio.
+- EB_PROMOTER_ROLE_IDS precisa ser preenchida em Environment no Render com os IDs dos cargos do grupo principal autorizados a promover. Se ficar vazia, a promoção principal fica bloqueada por segurança.

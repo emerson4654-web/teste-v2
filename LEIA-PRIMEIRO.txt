@@ -1,0 +1,9 @@
+EB Manager — pacote de atualização corrigido
+
+Todos os arquivos deste ZIP estão na raiz, sem subpastas. Faça backup do repositório antes de atualizar.
+
+O pacote inclui servidor, login, painel, configs de cargos/divisões, API do CDP e Script Lua para o Roblox. Os arquivos de dados existentes foram deixados de fora para não sobrescrever horas, sessões, histórico e promoções já registrados. Mantenha-os no repositório.
+
+Antes de usar promoções reais: configure as variáveis do Render indicadas em INSTRUCOES_ATUALIZACAO.txt e revise a ordem de cargos de cada divisão; a maioria dos ranks no JSON original veio como 1.
+
+Nenhuma chave secreta está incluída.

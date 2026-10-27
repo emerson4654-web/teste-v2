@@ -1,53 +1,54 @@
-EB MANAGER — ATUALIZAÇÃO DE LOGIN PERSISTENTE + CDP
-===================================================
+EB MANAGER — PACOTE CORRIGIDO
+================================
 
-O QUE ESTA VERSÃO INCLUI
-- Botão visível “Sair” no painel. Ele remove a sessão do navegador e do armazenamento do servidor.
-- Login renovável de longa duração (10 anos, renovado a cada uso) até o usuário clicar em Sair ou apagar os dados/cookies do navegador.
-- Sessões guardadas em sessoes.json na pasta de dados configurada.
-- Página Capacitação (CDP): mostra o progresso do próprio militar e permite que cargos autorizados creditem horas, definam/retirem o status Em CDP e registrem observações.
-- A promoção é bloqueada se o militar estiver com status Em CDP.
-- Intervalo global de 30 minutos entre promoções reais, persistido em promocao-cooldown.json.
-- API de leitura do CDP para o servidor do jogo, protegida por uma chave compartilhada.
-- Script Roblox CDP_Roblox_Server.lua: cria um TextLabel na interface do jogador e atualiza o texto a cada 60 segundos.
-- Campos de observações sem maxlength artificial; seguem limites técnicos de tamanho de requisição e da imagem por segurança.
-- Arquivos do pacote na raiz, sem subpastas.
+Este ZIP tem os arquivos de código atualizados na RAIZ, sem subpastas. Não apague imagens que já existem no seu repositório. Faça uma cópia do repositório e dos dados antes de substituir arquivos.
 
-PUBLICAR NO RENDER
-1. Substitua no GitHub os arquivos deste ZIP pelos correspondentes no repositório (todos na raiz).
-2. Use Web Service, Runtime Node, Build Command: npm install e Start Command: npm start.
-3. Configure estas variáveis de ambiente:
-   EB_GROUP_ID=13616747
-   ROBLOX_OPEN_CLOUD_API_KEY= SUA_CHAVE_OPEN_CLOUD (para alterações reais de cargos)
-   ROBLOX_CDP_API_KEY= SUA_CHAVE_SECRETA_CDP (nova chave compartilhada com o Script Roblox)
-   EB_DATA_DIR=/var/data (quando tiver adicionado um disco persistente montado em /var/data)
-4. Gere uma chave secreta CDP longa e aleatória, por exemplo rodando localmente:
-   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-5. Copie o resultado para ROBLOX_CDP_API_KEY no Render. Use exatamente o mesmo valor na variável CDP_API_KEY do Script CDP_Roblox_Server.lua.
-6. A chave Open Cloud e a chave CDP são diferentes. Nunca coloque a chave Open Cloud no jogo ou no navegador.
+ARQUIVOS PRINCIPAIS
+- server.js: servidor, verificação da bio, sessão, API de CDP, promoções, histórico, ranking, permissões de CDE/divisões e solicitações de entrada.
+- index.html: tela de login Roblox por código na bio.
+- dashboard.html: painel visual, Sair, CDP, Entregar Patente, Hierarquia, Ranking, Histórico de Patentes, Promoção por Divisões e Painel CDE.
+- package.json: comando de inicialização do Node.
+- cargos_eb.json: grupo EB, cargos, sequência configurada, cargos que não podem receber promoção e salto das patentes da Presidência.
+- divisoes.json: IDs dos grupos/cargos BFE, BPE, BAC, CIE, CIGS e BIP, promotores permitidos e limite do CDE por divisão.
+- Arquivos de dados existentes (cdp.json, treinamentos.json, promocoes.json, historico-divisoes.json, promocao-cooldown.json, sessoes.json): ficam fora deste ZIP para não sobrescrever seus registros. Mantenha os que já existem. Se algum não existir, o servidor usa valores vazios e cria o arquivo ao primeiro registro.
+- CDP_Roblox_Server.lua: Script para ServerScriptService que mostra as horas/status em um TextLabel e pode registrar treinamento quando um script confiável do servidor o informar.
 
-SESSÃO LONGA / ARMAZENAMENTO PERSISTENTE
-- O login fica ativo e a validade se renova ao usar o site. O botão Sair encerra a sessão.
-- Para manter sessões, horas CDP e registros depois de redeploys/reinícios no Render, conecte um disco persistente ao serviço com caminho de montagem /var/data e defina EB_DATA_DIR=/var/data. Sem disco persistente, o sistema de arquivos do Render é efêmero e dados locais podem ser perdidos em redeploys/reinícios.
-- A validade “infinita” não é literalmente infinita: o cookie é renovado a cada uso e pode ser removido pelo usuário ou pelo navegador. O botão Sair revoga a sessão no servidor.
+RENDER (usar Web Service, NÃO Static Site)
+- Build Command: npm install
+- Start Command: npm start
+- Root Directory: deixar vazio quando os arquivos estão na raiz.
 
-ROBLOX STUDIO — COLOCAR A ETIQUETA CDP
-1. Abra a experiência no Roblox Studio.
-2. Vá em Game Settings > Security e ative Allow HTTP Requests.
-3. Crie um Script em ServerScriptService chamado CDP_Roblox_Server.
-4. Copie todo o conteúdo de CDP_Roblox_Server.lua para esse Script.
-5. Troque https://SEU-SERVICO.onrender.com pelo endereço real do seu Web Service do Render, mantendo /api/roblox/cdp no fim.
-6. Troque COLOQUE_A_MESMA_CHAVE_SECRETA_DO_RENDER_AQUI pelo valor exato de ROBLOX_CDP_API_KEY.
-7. Publique a experiência e teste com uma conta que esteja no grupo EB 13616747.
+Variáveis de ambiente necessárias/recomendadas:
+EB_GROUP_ID=13616747
+ROBLOX_OPEN_CLOUD_API_KEY=CHAVE_PRIVADA_OPEN_CLOUD
+ROBLOX_CDP_API_KEY=UMA_CHAVE_SECRETA_LONGA_CRIADA_POR_VOCE
+EB_PROMOTER_ROLE_IDS=IDs_SEPARADOS_POR_VIRGULA
+EB_DATA_DIR=/var/data  (somente se você montar um disco persistente no Render em /var/data)
 
-COMO O VALOR CDP É DEFINIDO
-- O rótulo exibe as horas creditadas no painel / horas exigidas pela patente atual.
-- O tempo online no jogo não é automaticamente contado como treinamento. Um usuário autorizado deve creditar as horas na página Capacitação (CDP).
-- A tabela implementada usa os requisitos informados: Recruta 3h, Cabo 6h, Terceiro Sargento 9h, Segundo Sargento 12h, Primeiro Sargento 15h, Subtenente 18h, Cadete 21h, Aspirante 24h, Segundo Tenente 27h, Primeiro Tenente 30h, Capitão 33h, Major 36h, Tenente Coronel 39h, Coronel 42h, General de Brigada 45h, General de Divisão 48h, General do Exército 51h, Vice Presidente 54h, Presidente 57h, Marechal 60h, Elite Militar 63h, Elite Secreta 66h, Elite Real 69h, Sub Comandante 72h e Comandante 72h.
-- Cargos não cobertos pela tabela mostram “requisito não definido” até você confirmar um valor.
+IMPORTANTE SOBRE PERMISSÕES
+1) ROBLOX_OPEN_CLOUD_API_KEY precisa ter group:read e group:write e acesso aos grupos EB e divisões que o serviço vai operar. O usuário que criou a chave também precisa ter autoridade no grupo para atribuir os cargos desejados. Consulte https://create.roblox.com/docs/cloud/reference/features/groups e https://create.roblox.com/docs/cloud/reference/scopes.
+2) O ID do grupo principal é 13616747. CDE é autorizado pelo cargo roleId 908892004 dentro desse grupo.
+3) Entregar Patente no grupo principal usa EB_PROMOTER_ROLE_IDS (roleIds autorizados no grupo EB). Esse valor fica vazio por padrão de segurança porque o usuário ainda não especificou quais cargos do grupo principal podem executar promoções. Até preenchê-lo, o módulo principal mostra acesso restrito.
+4) Promoção por Divisões é autorizada pelos roleIds configurados em divisoes.json: apenas os cargos de Subcomandante até Criador, conforme os dados enviados para cada divisão. CDE pode atribuir cargos no painel CDE até o limite de cada divisão; no BIP, que não possui cargo com o nome Dono na lista enviada, o limite configurado é [SUP-G] Paraquedista Supervisor-Geral.
+5) O JSON original enviado pelo usuário contém rank=1 em quase todos os cargos. Por isso, as sequências de promoção das divisões foram configuradas seguindo a ordem da lista fornecida, NÃO por comparação dos ranks. Confirme a ordem real de cada divisão antes de permitir promoção real.
+6) As promoções principais pulam Vice Presidente (842498073) e Presidente (845218008). Quem já está nos cargos bloqueados de Marechal até DEVELOPES (incluindo Elite Militar/Secreta/Real, Sub Comandante, Comandante e cargos administrativos listados) não pode receber nova promoção. O status Em CDP bloqueia promoção; a promoção principal também exige as horas da tabela correspondentes à patente atual.
+7) O intervalo global de 30 minutos vale para promoções principais, por divisão e atribuição de cargos pelo CDE. O intervalo é persistido em promocao-cooldown.json.
+8) Textos não têm atributo maxlength no formulário. O servidor ainda tem limites técnicos de tamanho de requisição e de foto para evitar abuso; textos nunca são truncados silenciosamente.
 
-LIMITAÇÕES IMPORTANTES
-- A chave ROBLOX_CDP_API_KEY autentica o script do servidor Roblox perante o site. Mantenha-a somente em Script dentro de ServerScriptService, nunca em LocalScript/StarterGui.
-- Alterar cargos no Roblox só funciona quando ROBLOX_OPEN_CLOUD_API_KEY tem as permissões de grupo necessárias.
-- A lista de cargos enviada mostrou rank=1 para muitos cargos. Confirme a hierarquia de promoções antes de usar promoções reais.
-- Esta versão implementa a tela CDP, o armazenamento de horas/status e o endpoint de leitura para o jogo; não registra automaticamente o tempo de jogo como CDP.
+CDP NO ROBLOX STUDIO
+1) No Studio, abra Game Settings > Security e habilite Allow HTTP Requests.
+2) Coloque o conteúdo de CDP_Roblox_Server.lua num Script em ServerScriptService. NÃO use LocalScript.
+3) No Script, troque EB_MANAGER_URL pelo endereço HTTPS do Web Service no Render (sem barra final) e CDP_API_KEY pela mesma chave definida em ROBLOX_CDP_API_KEY no Render.
+4) O TextLabel consulta /api/roblox/cdp a cada 60 segundos e mostra as horas creditadas, as exigidas para a patente e o status Em CDP.
+5) Para registrar um treinamento real a partir de um script confiável do servidor, depois de verificar a conclusão do treino, chame:
+   game:GetService("ServerScriptService").EBRegistrarTreinamento:Fire(player, "Nome do treinamento", "Observações")
+   O evento só existe no servidor. Não exponha a chave em LocalScript nem a envie para clientes.
+6) A API registra treinamentos no ranking; ela NÃO converte automaticamente um treinamento em horas de CDP. As horas de CDP são creditadas no painel, na área Registrar horas de CDP.
+
+DADOS E TESTES
+- O ZIP não traz os arquivos de dados para evitar apagar registros existentes. Faça backup e preserve os arquivos de dados atuais. Se não existirem, o servidor aceita iniciar sem eles e os cria ao gravar novos dados.
+- O endpoint /healthz deve retornar {"ok":true,"service":"EB Manager",...} quando o servidor estiver ativo.
+- Neste ambiente, foram verificados: sintaxe do server.js, sintaxe do JavaScript inline do dashboard, JSONs, inicialização do servidor, rota de login e fluxo de verificação/promoção usando APIs Roblox simuladas. Não foi possível validar uma alteração real no grupo Roblox sem a chave Open Cloud do dono e permissões reais.
+- Para aceitar pessoas, o painel consulta solicitações de entrada do grupo selecionado pela Open Cloud. Isso não permite adicionar um usuário que não tenha pedido para entrar; aceite uma solicitação pendente ou peça para a pessoa solicitar entrada.
+
+O pacote não contém segredos. Nunca comite a chave Open Cloud nem a chave da API CDP no GitHub.

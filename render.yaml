@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: eb-manager
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: EB_GROUP_ID
+        value: "13616747"
+      - key: ROBLOX_OPEN_CLOUD_API_KEY
+        sync: false
+      - key: ROBLOX_CDP_API_KEY
+        sync: false

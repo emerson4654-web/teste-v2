@@ -1,0 +1,14 @@
+RENDER — Environment Variables
+
+EB_GROUP_ID=13616747
+ROBLOX_OPEN_CLOUD_API_KEY=COLOQUE_A_CHAVE_PRIVADA_OPEN_CLOUD_NO_RENDER
+ROBLOX_CDP_API_KEY=CRIE_UMA_CHAVE_SECRETA_LONGA_E_COLOQUE_AQUI_NO_RENDER
+EB_PROMOTER_ROLE_IDS=IDs_DOS_CARGOS_AUTORIZADOS_SEPARADOS_POR_VIRGULA
+
+Opcional, apenas depois de montar um disco persistente no caminho /var/data:
+EB_DATA_DIR=/var/data
+
+Nunca coloque os valores reais das chaves no GitHub, em HTML ou em LocalScripts.
+ROBLOX_OPEN_CLOUD_API_KEY precisa ter as permissões apropriadas para ler e alterar cargos nos grupos que você autoriza.
+ROBLOX_CDP_API_KEY deve ser uma senha longa e aleatória. Use o mesmo valor no Script de servidor CDP_Roblox_Server.lua.
+EB_PROMOTER_ROLE_IDS não foi preenchida com IDs inventados: o dono precisa escolher quais cargos do grupo EB podem executar promoções principais.
