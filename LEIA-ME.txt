@@ -1,0 +1,32 @@
+EB MANAGER — LOGIN FUNCIONAL POR BIO DO ROBLOX
+================================================
+
+O QUE ESTE PACOTE FAZ
+- Mantém a página inicial do arquivo enviado.
+- Os botões de login abrem a verificação por bio.
+- O servidor consulta o nome de usuário e o perfil público do Roblox.
+- Gera um código único, com validade de 10 minutos.
+- Só libera /painel quando a descrição pública contém o código da sessão.
+- Usa uma sessão HTTP-only no servidor e permite sair da conta.
+- Todos os arquivos do ZIP ficam na mesma pasta (sem subpastas) e não há bibliotecas extras.
+
+COMO EXECUTAR NO WINDOWS
+1. Instale Node.js 18 ou superior, caso ainda não tenha.
+2. Extraia todos os arquivos do ZIP para uma pasta no computador.
+3. Dê dois cliques em iniciar.bat.
+4. A página abre em http://localhost:3000. Deixe a janela do servidor aberta.
+
+COMO FUNCIONA O LOGIN
+1. Clique em “Entrar com Roblox” ou “Verificar pela bio”.
+2. Digite o nome de usuário Roblox (não use a senha nem o nome de exibição).
+3. Gere o código, copie e coloque temporariamente na descrição/bio do perfil Roblox.
+4. Salve a descrição e volte ao site. Clique em “Já coloquei na bio — checar”.
+5. Quando o Roblox disponibilizar a descrição atualizada e o código for encontrado, o site abrirá o painel.
+6. Depois do login, pode remover o código da bio.
+
+IMPORTANTE
+- Não abra index.html diretamente com duplo clique. Para verificar o Roblox é necessário executar server.js pelo Node, porque o site usa rotas de servidor.
+- A verificação depende da disponibilidade das APIs públicas do Roblox; rate limits ou indisponibilidade temporária podem exigir nova tentativa.
+- O ZIP original contém a página inicial e seus recursos visuais, não os módulos administrativos privados da hospedagem original. Por isso este pacote implementa o login e um painel pós-login básico; os botões administrativos são placeholders e precisam de integração própria.
+- Para publicar na internet, hospede o Node.js num servidor compatível e use HTTPS. O pacote local não é um site público automaticamente.
+- Nunca peça ou armazene senha, cookie .ROBLOSECURITY ou código de autenticação do Roblox. Este fluxo não solicita esses dados.
