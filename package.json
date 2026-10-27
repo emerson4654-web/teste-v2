@@ -1,0 +1,8 @@
+{
+  "name": "eb-manager-verificacao",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portal EB Manager com servidor Node.js",
+  "scripts": { "start": "node index.js" },
+  "engines": { "node": ">=18.17.0" }
+}

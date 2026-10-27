@@ -1,0 +1,24 @@
+CORREÇÃO: {"ok":false,"error":"Não foi possível abrir um arquivo do site."}
+
+O servidor está tentando carregar um arquivo pela raiz do projeto e não o encontrou.
+Este pacote inclui index.js, index.html, dashboard.html e as imagens/configurações usadas por eles.
+
+COMO APLICAR NO GITHUB
+1. Faça backup do repositório atual.
+2. Extraia todos os arquivos deste ZIP.
+3. Envie TODOS os arquivos extraídos para a RAIZ do repositório, não para uma subpasta.
+4. Substitua os arquivos de mesmo nome e adicione os que faltarem.
+5. Este pacote usa index.js como servidor principal. O package.json já está configurado com "start": "node index.js".
+6. Se ainda existir um server.js antigo, este pacote inicia index.js. Não defina o comando para iniciar os dois.
+7. Faça commit no GitHub e aguarde o Render publicar.
+
+RENDER
+Build Command: npm install
+Start Command: npm start
+Root Directory: vazio
+
+IMPORTANTE
+- Não envie apenas index.js. index.html e dashboard.html também precisam estar presentes na raiz.
+- Preserve os dados reais já existentes no servidor, como cdp.json, treinamentos.json, promocoes.json, historico-divisoes.json e sessoes.json; não os substitua por arquivos vazios.
+- Não coloque chaves privadas dentro dos arquivos do site ou do Roblox. Mantenha as chaves como variáveis secretas do Render.
+- Este pacote ajuda a corrigir arquivos ausentes, mas não garante que integrações externas funcionem antes de configurar as variáveis e testar no Render.
