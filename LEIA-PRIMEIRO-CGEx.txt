@@ -1,0 +1,30 @@
+EB MANAGER — ABA CGEx
+
+ESTE PACOTE CONTÉM OS ARQUIVOS PARA SUBSTITUIR NA RAIZ DO GITHUB:
+- index.js
+- dashboard.html
+- index.html
+- cargos_eb.json
+- package.json
+
+REGRAS DA ABA CGEx
+- Grupo principal EB: 13616747
+- Podem acessar: [CGEx] Corregedoria (roleId 849818027), [S-CR] Sub Criador (roleId 843780076) e [CR] Criador (roleId 844132065).
+- O acesso é validado pelo servidor em cada chamada; esconder o botão no site não é a única proteção.
+- Permite selecionar uma patente entre Recruta e Marechal; Vice Presidente e Presidente são pulados.
+- O militar alvo precisa já ser membro do grupo EB.
+- Militar Em CDP não pode ter a patente alterada.
+- Usa o intervalo global de 30 minutos entre alterações de patente.
+- A atribuição é registrada nos históricos do painel.
+
+PARA PUBLICAR
+1. Faça backup do repositório antes de trocar os arquivos.
+2. Extraia o ZIP e envie esses arquivos diretamente para a raiz do repositório GitHub, substituindo os arquivos de mesmo nome. Não envie o ZIP como um único arquivo.
+3. Faça commit. O Render pode publicar automaticamente se o deploy automático estiver ativado.
+4. Mantenha Build Command = npm install e Start Command = npm start (package.json executa node index.js).
+5. No Render, configure ROBLOX_OPEN_CLOUD_API_KEY como variável secreta. A chave precisa de permissões group:read e group:write sobre o grupo EB 13616747 e de acesso para atribuir/remover os cargos necessários. Nunca coloque a chave no HTML, no GitHub ou no Roblox Studio.
+
+IMPORTANTE
+- Preserve os arquivos de dados existentes, como cdp.json, promocoes.json, sessoes.json, treinamentos.json, historico-divisoes.json e promocao-cooldown.json. Eles não fazem parte deste pacote.
+- A hierarquia dos cargos enviada tem rank=1 em várias funções; este painel usa os IDs explicitamente permitidos listados no código, sem depender desse campo para ordenar o menu.
+- O código foi verificado por sintaxe e o servidor iniciou localmente. A atribuição real de cargos precisa ser testada no Render com a chave Open Cloud e as permissões da conta que criou a chave.

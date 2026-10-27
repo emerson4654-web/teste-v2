@@ -1,0 +1,718 @@
+<!DOCTYPE html><html lang="pt-BR" class="js pronto"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EB Manager | Exército Brasileiro Emerson</title>
+<meta name="description" content="O painel do Exército Brasileiro no Roblox: promoções, patentes, divisões e o registro de cada ação. Entre com sua conta do Roblox.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://teste-v2-6v96.onrender.com/">
+<meta property="og:site_name" content="EB Manager">
+<meta property="og:title" content="EB Manager — Exército Brasileiro Emerson">
+<meta property="og:description" content="O painel do Exército Brasileiro no Roblox: promoções, patentes, divisões e o registro de cada ação.">
+<meta property="og:image" content="/eb-logo.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EB Manager — Exército Brasileiro Emerson">
+<meta name="twitter:description" content="O painel do Exército Brasileiro no Roblox: promoções, patentes, divisões e o registro de cada ação.">
+<meta name="twitter:image" content="/eb-logo.png">
+<meta name="theme-color" content="#2A0B78">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="canonical" href="https://teste-v2-6v96.onrender.com/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://teste-v2-6v96.onrender.com/#org",
+      "name": "Exército Brasileiro Emerson",
+      "alternateName": ["EB Emerson", "EB Emerson"],
+      "url": "https://teste-v2-6v96.onrender.com/",
+      "logo": "https://teste-v2-6v96.onrender.com/static/eeb.png",
+      "description": "Comunidade militar de roleplay do Exército Brasileiro no Roblox, com hierarquia de patentes, treinos, promoções e milhares de membros."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://teste-v2-6v96.onrender.com/#site",
+      "url": "https://teste-v2-6v96.onrender.com/",
+      "name": "EB Manager",
+      "publisher": { "@id": "https://teste-v2-6v96.onrender.com/#org" },
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://teste-v2-6v96.onrender.com/#app",
+      "name": "EB Manager",
+      "url": "https://teste-v2-6v96.onrender.com/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+      "description": "Sistema oficial de gestão militar do Exército Brasileiro Emerson no Roblox: promoções e rebaixamentos, relatórios de treino, logs auditáveis, hierarquia de patentes e administração da comunidade em um só lugar.",
+      "publisher": { "@id": "https://teste-v2-6v96.onrender.com/#org" },
+      "inLanguage": "pt-BR"
+    }
+  ]
+}
+</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&amp;family=Rubik:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preload" as="image" type="image/webp" imagesrcset="/guarita-1280.webp 1280w, /guarita.webp 1920w" imagesizes="(min-width:1024px) min(100vw, 1600px), (min-width:640px) 112vw, 133vw">
+<script>
+  document.documentElement.classList.add('js');
+  /* Dentro do Discord (Activity) o login do Roblox nao abre: so a bio funciona. */
+  if (window.self !== window.top) document.documentElement.classList.add('in-activity');
+</script>
+<style>
+:root{
+  --roxo-950:#150440;
+  --roxo-900:#1D0752;
+  --roxo-800:#2A0B78;
+  --roxo-600:#4811BE;
+  --roxo-500:#5E1FD5;
+  --roxo-300:#9352F7;
+  --lilas-200:#CDB9FF;
+  --lilas-100:#E4D8FF;
+  --lilas-50:#F4EFFF;
+  --ouro-100:#FFF3BD;
+  --ouro-200:#FFE269;
+  --ouro-500:#E7A200;
+  --ouro-700:#9E6900;
+  --tinta:#22095E;
+  --tinta-suave:#4A3880;
+  --display:'Lilita One','Arial Rounded MT Bold',system-ui,sans-serif;
+  --texto:'Rubik',system-ui,-apple-system,'Segoe UI',sans-serif;
+
+  /* A cena da guarita (1920x1288) e posicionada em fracoes da propria largura.
+     A borda esquerda da placa vira a margem de toda a pagina (--g). */
+  --pw:133vw;
+  --ph:calc(var(--pw) / 1.4907);
+  --cx:calc(var(--pw) * -.09);
+  --ct:.03;
+  --g:max(16px, calc(var(--cx) + var(--pw) * .135));
+}
+@media (min-width:640px){
+  :root{ --pw:112vw; --cx:calc(var(--pw) * -.04); --ct:.08; }
+}
+@media (min-width:1024px){
+  :root{ --pw:min(100vw, 1600px); --cx:calc(50% - var(--pw) / 2); --ct:.16; }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--roxo-900);
+  color:#fff;
+  font-family:var(--texto);
+  font-size:16px;
+  line-height:1.55;
+  font-synthesis:none;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.05}
+p{margin:0}
+:focus-visible{outline:3px solid var(--ouro-200);outline-offset:3px;border-radius:8px}
+.painel :focus-visible{outline-color:var(--roxo-500)}
+.svg-defs{position:absolute;width:0;height:0;overflow:hidden}
+.ic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Discord Activity: troca o login do Roblox pela verificacao da bio */
+.so-activity{display:none !important}
+html.in-activity .so-site{display:none !important}
+html.in-activity .so-activity{display:revert !important}
+html.in-activity a.so-activity{display:inline-flex !important}
+
+/* ---------- topo ---------- */
+.topo{
+  position:absolute;inset:0 0 auto 0;z-index:3;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px var(--g);
+}
+.marca{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.marca img{width:40px;height:40px;filter:drop-shadow(0 3px 6px rgba(21,4,64,.45))}
+.marca-nome{display:flex;flex-direction:column;line-height:1}
+.marca-nome b{font-family:var(--display);font-weight:400;font-size:21px;text-shadow:0 2px 0 rgba(21,4,64,.4)}
+.marca-nome small{margin-top:3px;font-size:12px;font-weight:500;color:var(--lilas-100)}
+.topo-links{display:none}
+
+/* ---------- palco: a guarita ---------- */
+.palco{
+  position:relative;overflow:hidden;
+  height:calc(var(--ph) * (1 - var(--ct)));
+  background:var(--roxo-800);
+}
+.cena{
+  position:absolute;
+  left:var(--cx);
+  top:calc(var(--ph) * var(--ct) * -1);
+  width:var(--pw);
+  aspect-ratio:1920 / 1288;
+  overflow:hidden;
+}
+.cena picture{display:contents}
+.cena-img{width:100%;height:100%;max-width:none;object-fit:cover}
+.cena-ceu{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,#3B0EA8 0%,rgba(94,31,213,.55) 19%,rgba(94,31,213,0) 36%);
+  mix-blend-mode:multiply;
+}
+.cena-chao{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(42,11,120,0) 95%,var(--roxo-800) 100%);
+}
+/* A placa da arte foi endireitada (correcao de perspectiva de 23/10: a original tinha a
+   borda de cima a -0,86 grau e a esquerda tombada 2,3 graus). Por isso o texto aqui e
+   RETO: girar para acompanhar a foto era o que deixava torto. */
+.placa{
+  position:absolute;
+  left:13.5%;top:38.4%;width:50.3%;height:52.4%;
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+}
+.placa h1{
+  font-size:calc(var(--pw) * .066);
+  line-height:1;
+  color:#2A0B78;
+  mix-blend-mode:multiply;
+}
+.placa p{
+  margin-top:calc(var(--pw) * .008);
+  max-width:26em;
+  font-size:clamp(14px, calc(var(--pw) * .0165), 24px);
+  line-height:1.35;
+  font-weight:500;
+  color:#3B2475;
+  mix-blend-mode:multiply;
+}
+.placa .btn-ouro{
+  margin-top:calc(var(--pw) * .024);
+  font-size:clamp(17px, calc(var(--pw) * .0158), 25px);
+}
+
+/* ---------- botoes que afundam ---------- */
+.btn-ouro,.btn-roxo{
+  --fundo:6px;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  margin-bottom:var(--fundo);
+  padding:.8em 1.3em .74em;
+  border-radius:14px;
+  font-family:var(--display);font-weight:400;font-size:20px;line-height:1;letter-spacing:.01em;
+  text-decoration:none;
+  cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;
+  transition:translate .07s ease-out, box-shadow .07s ease-out;
+}
+.btn-ouro svg,.btn-roxo svg{width:1.1em;height:1.1em;stroke-width:2.6;flex:none;pointer-events:none}
+.btn-ouro{
+  color:#2A0B78;
+  background:linear-gradient(180deg,#FFEC94 0%,var(--ouro-200) 24%,#F5B90C 62%,var(--ouro-500) 100%);
+  box-shadow:
+    0 var(--fundo) 0 var(--ouro-700),
+    0 calc(var(--fundo) + 5px) 14px rgba(21,4,64,.35),
+    inset 0 2px 0 rgba(255,255,255,.75),
+    inset 0 -2px 0 rgba(158,105,0,.3);
+}
+.btn-ouro:active{
+  translate:0 var(--fundo);
+  box-shadow:
+    0 0 0 var(--ouro-700),
+    0 2px 5px rgba(21,4,64,.3),
+    inset 0 2px 0 rgba(255,255,255,.5),
+    inset 0 -2px 0 rgba(158,105,0,.3);
+}
+.btn-roxo{
+  font-size:18px;
+  color:#fff;
+  background:linear-gradient(180deg,#7A3CF2 0%,var(--roxo-500) 55%,#5118C8 100%);
+  box-shadow:
+    0 var(--fundo) 0 #1E0763,
+    0 calc(var(--fundo) + 5px) 14px rgba(10,2,36,.35),
+    inset 0 2px 0 rgba(255,255,255,.22);
+}
+.btn-roxo:active{
+  translate:0 var(--fundo);
+  box-shadow:0 0 0 #1E0763, inset 0 2px 0 rgba(255,255,255,.18);
+}
+@media (hover:hover){
+  .btn-ouro:hover{filter:brightness(1.06)}
+  .btn-roxo:hover{filter:brightness(1.12)}
+}
+
+/* ---------- portao: termos e menores de 13 ---------- */
+.portao{
+  background:var(--roxo-800);
+  color:var(--lilas-100);
+  padding:16px var(--g) 40px;
+}
+.termos{font-size:14px;line-height:1.5;color:var(--lilas-200);max-width:62ch}
+.termos a{color:var(--ouro-200);text-underline-offset:3px}
+.menor{
+  margin-top:22px;padding-top:22px;
+  border-top:1px solid rgba(147,82,247,.38);
+  display:grid;gap:18px;justify-items:start;
+}
+.menor h2{font-size:23px;color:#fff}
+.menor p{margin-top:6px;font-size:15px;line-height:1.5;max-width:50ch}
+
+/* ---------- o que o painel faz ---------- */
+.painel{
+  background:var(--lilas-50);
+  color:var(--tinta);
+  padding:72px var(--g) 84px;
+}
+.painel h2{font-size:clamp(36px, 9.4vw, 58px);line-height:1;color:var(--tinta);max-width:11ch}
+.painel-intro p{margin-top:18px;font-size:17px;line-height:1.6;color:var(--tinta-suave);max-width:42ch}
+.funcoes{list-style:none;margin:40px 0 0;padding:0}
+.funcoes > li{
+  display:grid;grid-template-columns:42px minmax(0,1fr);column-gap:16px;
+  padding:24px 0;
+  border-top:1.5px solid rgba(94,31,213,.16);
+}
+.funcoes > li:last-child{border-bottom:1.5px solid rgba(94,31,213,.16)}
+.divisa{width:42px;height:32px;margin-top:-2px}
+.funcoes h3{font-size:24px;line-height:1.1;color:var(--roxo-800)}
+.funcoes p{margin-top:6px;font-size:16px;line-height:1.55;color:var(--tinta-suave);max-width:46ch}
+.tarjas{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.tarja{
+  font-family:var(--display);font-size:16px;line-height:1;letter-spacing:.06em;
+  color:var(--ouro-200);
+  background:var(--roxo-500);
+  padding:9px 13px 8px;
+  border-radius:7px;
+  outline:1.5px dashed rgba(255,226,105,.6);outline-offset:-5px;
+  box-shadow:0 3px 0 var(--roxo-800);
+}
+
+/* ---------- a tropa: numeros ---------- */
+.tropa{
+  --tw:180vw;
+  --th:calc(var(--tw) / 1.791);
+  background:var(--roxo-900);
+  padding-bottom:72px;
+}
+.tropa-cena{position:relative;overflow:hidden;height:calc(var(--th) * .70)}
+.tropa-cena picture{display:contents}
+.tropa-cena img{
+  position:absolute;max-width:none;
+  width:var(--tw);height:auto;
+  left:calc(var(--tw) * -.205);
+  top:calc(var(--th) * -.03);
+}
+.tropa-ceu{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,#3B0EA8 0%,rgba(94,31,213,.4) 22%,rgba(94,31,213,0) 42%);
+  mix-blend-mode:multiply;
+}
+.tropa-chao{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(29,7,82,0) 52%,rgba(29,7,82,.7) 80%,var(--roxo-900) 100%);
+}
+.placar{
+  position:relative;
+  margin:-60px var(--g) 0;
+  padding:26px 22px 24px;
+  border-radius:24px;
+  background:linear-gradient(180deg,#6A2BE0 0%,var(--roxo-500) 32%,var(--roxo-600) 100%);
+  border:2px solid rgba(165,118,255,.7);
+  box-shadow:
+    0 10px 0 #1E0763,
+    0 28px 50px rgba(10,2,36,.55),
+    inset 0 2px 0 rgba(255,255,255,.2);
+}
+.placar h2{display:flex;flex-direction:column;gap:10px}
+.num-grande{
+  font-size:clamp(66px, 19vw, 96px);
+  line-height:.92;
+  letter-spacing:.01em;
+  background:linear-gradient(180deg,var(--ouro-100) 0%,var(--ouro-200) 38%,#F5B90C 70%,var(--ouro-500) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 4px 0 var(--ouro-700)) drop-shadow(0 12px 14px rgba(10,2,36,.45));
+  padding-bottom:4px;
+}
+.num-rotulo{font-family:var(--texto);font-weight:500;font-size:18px;line-height:1.3;color:#fff}
+.placar-linhas{list-style:none;margin:22px 0 0;padding:0}
+.placar-linhas li{padding:14px 0;border-top:1px solid rgba(255,255,255,.16)}
+.placar-linhas strong{display:block;font-family:var(--display);font-weight:400;font-size:34px;line-height:1;color:var(--ouro-200)}
+.placar-linhas span{display:block;margin-top:5px;font-size:15px;line-height:1.4;color:var(--lilas-100)}
+.placar-data{padding-top:12px;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:var(--lilas-200)}
+.tropa-cta{padding:44px var(--g) 0}
+.tropa-cta-titulo{font-family:var(--display);font-size:32px;line-height:1.05;color:#fff}
+.tropa-cta p + p{margin-top:8px;font-size:17px;line-height:1.45;color:var(--lilas-100)}
+.tropa-cta .btn-ouro{margin-top:22px;width:100%}
+
+/* ---------- rodape ---------- */
+.rodape{
+  background:var(--roxo-950);
+  color:var(--lilas-200);
+  padding:48px var(--g) 40px;
+  font-size:15px;
+}
+.rodape .marca img{width:34px;height:34px}
+.rodape-links{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:2px}
+.rodape-links a{display:inline-flex;align-items:center;gap:10px;padding:10px 0;color:#fff;text-decoration:none;font-weight:500}
+.rodape-links a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--ouro-200)}
+.rodape-links svg{width:18px;height:18px;color:var(--ouro-200);flex:none}
+.contato{margin-top:22px;line-height:1.5}
+.contato a{color:var(--ouro-200);text-underline-offset:3px;font-weight:500}
+.empresa{
+  margin-top:28px;padding-top:20px;
+  border-top:1px solid rgba(147,82,247,.25);
+  font-size:13px;line-height:1.7;color:#A994E0;
+}
+
+/* ---------- telas medias ---------- */
+@media (min-width:640px){
+  .tropa{--tw:120vw}
+  .tropa-cena img{left:calc(var(--tw) * -.083)}
+  .placar{max-width:520px;margin-left:auto}
+  .tropa-cta .btn-ouro{width:auto}
+}
+
+/* ---------- computador ---------- */
+@media (min-width:1024px){
+  .topo{padding-top:22px}
+  .placa h1{font-size:calc(var(--pw) * .072)}
+  .marca img{width:46px;height:46px}
+  .marca-nome b{font-size:24px}
+  .topo-links{display:flex;gap:30px;font-size:15px;font-weight:500}
+  .topo-links a{color:var(--lilas-100);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;text-shadow:0 1px 2px rgba(21,4,64,.5)}
+  .topo-links a:hover{color:#fff;border-bottom-color:var(--ouro-200)}
+
+  .portao{padding-top:22px;padding-bottom:48px}
+  .menor{grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:56px}
+
+  .painel{
+    display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:80px;
+    align-items:start;
+    padding-top:120px;padding-bottom:128px;
+  }
+  .funcoes{margin-top:4px}
+  .funcoes > li{grid-template-columns:52px minmax(0,1fr);padding:28px 0}
+  .divisa{width:48px;height:36px}
+  .funcoes h3{font-size:28px}
+
+  .tropa{
+    --tw:min(100vw, 1600px);
+    display:grid;
+    grid-template-columns:var(--g) minmax(0,1fr) 480px var(--g);
+    grid-template-rows:calc(var(--th) * .76) auto;
+    padding-bottom:104px;
+  }
+  .tropa-cena{grid-column:1 / -1;grid-row:1;height:auto}
+  .tropa-cena img{left:calc(50% - var(--tw) / 2);top:0}
+  .placar{grid-column:3;grid-row:1 / 3;align-self:start;max-width:none;margin:calc(var(--th) * .36) 0 0;padding:32px 30px 28px}
+  .tropa-cta{grid-column:2;grid-row:2;align-self:start;padding:52px 64px 0 0;max-width:620px}
+  .tropa-cta-titulo{font-size:48px}
+  .tropa-cta p + p{font-size:18px}
+
+  .rodape{display:grid;grid-template-columns:minmax(0,1fr) auto auto;column-gap:72px;align-items:start}
+  .rodape-links{margin:0}
+  .contato{margin:0;max-width:24ch}
+  .empresa{grid-column:1 / -1;margin-top:40px}
+}
+@media (min-width:1601px){
+  .cena,.tropa-cena img{
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#fff 7%,#fff 93%,transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#fff 7%,#fff 93%,transparent 100%);
+  }
+}
+
+/* ---------- o unico momento: a cena assenta e a placa e carimbada ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .js:not(.pronto) .cena-img,
+  .js:not(.pronto) .placa > *{opacity:0}
+  .pronto .cena-img{animation:assenta 1s cubic-bezier(.2,.75,.25,1) backwards}
+  .pronto .placa h1{animation:carimbo .42s cubic-bezier(.34,1.56,.64,1) .55s backwards}
+  .pronto .placa p{animation:surge .35s ease-out .82s backwards}
+  .pronto .placa .btn-ouro{animation:sobe .45s cubic-bezier(.34,1.56,.64,1) .96s backwards}
+}
+@keyframes assenta{from{opacity:0;scale:1.08}to{opacity:1;scale:1}}
+@keyframes carimbo{from{opacity:0;scale:1.45}55%{opacity:1}to{opacity:1;scale:1}}
+@keyframes surge{from{opacity:0}to{opacity:1}}
+@keyframes sobe{from{opacity:0;translate:0 14px}to{opacity:1;translate:0 0}}
+
+/* ---------- a placa desenhada (24/10/2026) ----------
+   A cena do jogo daqui nao tem uma placa na foto para o texto pousar: a placa e desenhada
+   aqui, um quadro creme com moldura dourada, no mesmo lugar da tela. */
+.placa{
+  left:13.5%;top:31%;width:auto;height:auto;max-width:54%;
+  padding:clamp(16px, calc(var(--pw) * .02), 34px) clamp(18px, calc(var(--pw) * .026), 44px);
+  background:linear-gradient(180deg,#FFF8E1 0%,#F6E7BC 100%);
+  border:clamp(4px, calc(var(--pw) * .0045), 8px) solid #9E6900;
+  border-radius:16px;
+  box-shadow:inset 0 0 0 2px #FFE269, 0 18px 40px rgba(10,2,36,.45);
+}
+.placa h1,.placa p{mix-blend-mode:normal}
+.placa h1{font-size:calc(var(--pw) * .056)}
+@media (min-width:1024px){ .placa h1{font-size:calc(var(--pw) * .058)} }
+</style>
+</head>
+<body>
+
+
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ouro-face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF3BD"></stop>
+      <stop offset=".38" stop-color="#FFE269"></stop>
+      <stop offset="1" stop-color="#E7A200"></stop>
+    </linearGradient>
+  </defs>
+  <symbol id="divisa" viewBox="0 0 44 34">
+    <path d="M2 24 22 10 42 24 42 32 22 18 2 32Z" fill="#9E6900"></path>
+    <path d="M2 18 22 4 42 18 42 26 22 12 2 26Z" fill="url(#ouro-face)"></path>
+    <path d="M3.6 18.1 22 5.3 40.4 18.1" fill="none" stroke="#FFF8DA" stroke-width="1.4" stroke-linejoin="round" opacity=".9"></path>
+  </symbol>
+  <symbol id="i-log-in" viewBox="0 0 24 24"><path d="m10 17 5-5-5-5"></path><path d="M15 12H3"></path><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path></symbol>
+  <symbol id="i-id-card" viewBox="0 0 24 24"><path d="M16 10h2"></path><path d="M16 14h2"></path><path d="M6.17 15a3 3 0 0 1 5.66 0"></path><circle cx="9" cy="11" r="2"></circle><rect x="2" y="5" width="20" height="14" rx="2"></rect></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"></path><path d="M8 6v8"></path></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"></path><path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"></path><path d="M18 9h1.5a1 1 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"></path><path d="M6 9H4.5a1 1 0 0 1 0-5H6"></path></symbol>
+  <symbol id="i-scroll-text" viewBox="0 0 24 24"><path d="M15 12h-5"></path><path d="M15 8h-5"></path><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"></path></symbol>
+</svg>
+
+<header class="topo">
+  <a class="marca" href="/" aria-label="EB Manager, início">
+    <img src="/app-icon.png" alt="" width="40" height="40">
+    <span class="marca-nome"><b>EB Manager</b><small>Exército Brasileiro</small></span>
+  </a>
+  <nav class="topo-links" aria-label="Páginas públicas">
+    <a href="#recursos">Ranking de Instrutores</a>
+    <a href="#recursos">Constituição</a>
+  </nav>
+</header>
+
+<main>
+  <section class="palco" aria-labelledby="titulo">
+    <div class="cena">
+      <picture>
+        <source type="image/webp" srcset="/guarita-1280.webp 1280w, /guarita.webp 1920w" sizes="(min-width:1024px) min(100vw, 1600px), (min-width:640px) 112vw, 133vw">
+        <img class="cena-img" src="/guarita.jpg" width="1920" height="924" alt="Entrada da base do jogo, com a guarita e o brasão do Exército." fetchpriority="high">
+      </picture>
+      <div class="cena-ceu" aria-hidden="true"></div>
+      <div class="cena-chao" aria-hidden="true"></div>
+      <div class="placa">
+        <h1 id="titulo">Identifique-se.</h1>
+        <p class="so-site">Acesse com sua conta do Roblox para continuar.</p>
+        <p class="so-activity">Verifique sua conta do Roblox pela bio para entrar aqui pelo Discord.</p>
+        <a class="btn-ouro so-site" href="#login" data-open-login id="btn-login-roblox"><svg class="ic" aria-hidden="true"><use href="#i-log-in"></use></svg><span>Entrar com Roblox</span></a>
+        <a class="btn-ouro so-activity" href="#login" data-open-login><svg class="ic" aria-hidden="true"><use href="#i-id-card"></use></svg><span>Verificar pela bio</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="portao" aria-label="Antes de entrar">
+    <p class="termos" id="termos">Ao entrar, você concorda com os <a href="#termos">Termos de Uso</a> e a <a href="#termos">Política de Privacidade</a>.</p>
+    <div class="menor so-site">
+      <div>
+        <h2>Tem menos de 13 anos?</h2>
+        <p>O Roblox bloqueia o login externo para menores. Prove que a conta é sua pela bio do perfil.</p>
+      </div>
+      <a class="btn-roxo" href="#login" data-open-login id="link-verificar-bio"><svg class="ic" aria-hidden="true"><use href="#i-id-card"></use></svg><span>Verificar pela bio do perfil</span></a>
+    </div>
+  </section>
+
+  <section class="painel" id="recursos" aria-labelledby="t-painel">
+    <div class="painel-intro">
+      <h2 id="t-painel">O quartel inteiro num painel só.</h2>
+      <p>Promoções, hierarquia, divisões, formulários e o registro de cada ação, num lugar rápido e seguro, feito para a Diretoria e os instrutores.</p>
+    </div>
+    <ul class="funcoes">
+      <li>
+        <svg class="divisa" aria-hidden="true"><use href="#divisa"></use></svg>
+        <div>
+          <h3>Promoções e patentes automáticas</h3>
+          <p>Quem promove não precisa fazer nada à mão: a patente nova vai direto para o grupo do Roblox.</p>
+        </div>
+      </li>
+      <li>
+        <svg class="divisa" aria-hidden="true"><use href="#divisa"></use></svg>
+        <div>
+          <h3>Cada divisão com seu painel</h3>
+          <p>As divisões gerenciam a própria equipe num painel de gerência só delas.</p>
+          <ul class="tarjas" aria-label="Divisões com painel próprio">
+            <li class="tarja">SGEX</li>
+            <li class="tarja">SRT</li>
+            <li class="tarja">CEE</li>
+            <li class="tarja">CDE</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <svg class="divisa" aria-hidden="true"><use href="#divisa"></use></svg>
+        <div>
+          <h3>Tudo fica registrado</h3>
+          <p>Cada ação no painel fica guardada: quem fez, o que fez e quando.</p>
+        </div>
+      </li>
+      <li>
+        <svg class="divisa" aria-hidden="true"><use href="#divisa"></use></svg>
+        <div>
+          <h3>Acesso seguro e verificado</h3>
+          <p>Só entra quem prova ser dono da conta do Roblox. Ninguém usa o painel no seu lugar.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="tropa" aria-labelledby="t-tropa">
+    <div class="tropa-cena">
+      <picture>
+        <source type="image/webp" srcset="/tropa-1280.webp 1280w, /tropa.webp 1920w" sizes="(min-width:1024px) min(100vw, 1600px), (min-width:640px) 120vw, 180vw">
+        <img src="/tropa.jpg" width="1920" height="924" loading="lazy" decoding="async" alt="O portão da base do jogo, com o pátio e a torre ao fundo.">
+      </picture>
+      <div class="tropa-ceu" aria-hidden="true"></div>
+      <div class="tropa-chao" aria-hidden="true"></div>
+    </div>
+    <div class="placar">
+      <h2 id="t-tropa">
+        <span class="num-grande">167.754</span>
+        <span class="num-rotulo">membros no grupo do Roblox</span>
+      </h2>
+      <ul class="placar-linhas">
+        <li><strong>2,5 milhões</strong><span>de visitas no jogo</span></li>
+        <li><strong>48.590</strong><span>pessoas favoritaram o jogo no Roblox</span></li>
+        <li><strong>36</strong><span>patentes na hierarquia do grupo</span></li>
+      </ul>
+      <p class="placar-data">Números medidos em 24/10/2026.</p>
+    </div>
+    <div class="tropa-cta">
+      <p class="tropa-cta-titulo">Faz parte desses 167.754?</p>
+      <p class="so-site">Entre com a sua conta do Roblox.</p>
+      <p class="so-activity">Verifique a sua conta do Roblox pela bio.</p>
+      <a class="btn-ouro so-site" href="#login" data-open-login><svg class="ic" aria-hidden="true"><use href="#i-log-in"></use></svg><span>Entrar com Roblox</span></a>
+      <a class="btn-ouro so-activity" href="#login" data-open-login><svg class="ic" aria-hidden="true"><use href="#i-id-card"></use></svg><span>Verificar pela bio</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div>
+    <a class="marca" href="/" aria-label="EB Manager, início">
+      <img src="/app-icon.png" alt="" width="34" height="34" loading="lazy">
+      <span class="marca-nome"><b>EB Manager</b><small>Exército Brasileiro</small></span>
+    </a>
+  </div>
+  <ul class="rodape-links" aria-label="Páginas públicas">
+    <li><a href="#recursos"><svg class="ic" aria-hidden="true"><use href="#i-trophy"></use></svg>Ranking de Instrutores</a></li>
+    <li><a href="#recursos"><svg class="ic" aria-hidden="true"><use href="#i-scroll-text"></use></svg>Constituição</a></li>
+  </ul>
+  <p class="empresa">© Exército Brasileiro Emerson</p>
+</footer>
+
+
+<script>
+(function () {
+  var html = document.documentElement;
+  var img = document.querySelector('.cena-img');
+  var imagem = new Promise(function (ok) {
+    if (!img || (img.complete && img.naturalWidth)) return ok();
+    img.addEventListener('load', ok);
+    img.addEventListener('error', ok);
+  });
+  var fontes = document.fonts ? document.fonts.ready : Promise.resolve();
+  var feito = false;
+  function pronto() { if (!feito) { feito = true; html.classList.add('pronto'); } }
+  Promise.all([imagem, fontes]).then(pronto);
+  setTimeout(pronto, 1800);
+})();
+</script>
+
+
+<!-- Login por verificação pública da bio do Roblox -->
+<div class="eb-login-overlay" id="ebLoginOverlay" hidden>
+  <section class="eb-login-modal" role="dialog" aria-modal="true" aria-labelledby="ebLoginTitle">
+    <button class="eb-login-close" type="button" id="ebLoginClose" aria-label="Fechar">×</button>
+    <div class="eb-login-brand"><img src="/app-icon.png" alt=""><span>EB Manager<small>Verificação de identidade</small></span></div>
+    <h2 id="ebLoginTitle">Entrar com Roblox</h2>
+    <p class="eb-login-desc">Confirme que a conta é sua usando a descrição pública do seu perfil. Não informe sua senha do Roblox.</p>
+    <label class="eb-field-label" for="ebUsername">Nome de usuário do Roblox</label>
+    <input id="ebUsername" class="eb-field" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Ex.: SeuNick" aria-describedby="ebLoginStatus">
+    <button class="eb-action eb-action-primary" id="ebGenerateCode" type="button">Gerar código de verificação</button>
+    <div id="ebCodeStep" class="eb-code-step" hidden>
+      <p class="eb-step-head">1. Copie este código</p>
+      <div class="eb-code-row"><code id="ebVerificationCode">EB-XXXXXXXX</code><button id="ebCopyCode" class="eb-copy" type="button">Copiar</button></div>
+      <p class="eb-step-head">2. Cole na descrição (bio) do seu perfil do Roblox</p>
+      <a id="ebProfileLink" class="eb-profile-link" href="https://www.roblox.com/" target="_blank" rel="noopener noreferrer">Abrir perfil do Roblox ↗</a>
+      <p class="eb-small">Depois de salvar a descrição, volte aqui. O código expira em 10 minutos. Não remova o código até concluir a verificação.</p>
+      <button class="eb-action eb-action-primary" id="ebCheckBio" type="button">Já coloquei na bio — checar</button>
+      <button class="eb-action eb-action-secondary" id="ebRestart" type="button">Usar outro usuário</button>
+    </div>
+    <p id="ebLoginStatus" class="eb-login-status" role="status" aria-live="polite"></p>
+    <p class="eb-login-foot">A verificação consulta apenas informações públicas do perfil.</p>
+  </section>
+</div>
+<style>
+.eb-login-overlay[hidden],.eb-code-step[hidden]{display:none!important}
+.eb-login-overlay{position:fixed;z-index:100000;inset:0;padding:18px;display:grid;place-items:center;background:rgba(13,3,39,.78);backdrop-filter:blur(8px);overflow:auto}
+.eb-login-modal{position:relative;width:min(100%,480px);padding:30px;border:1px solid rgba(255,226,105,.45);border-radius:22px;background:linear-gradient(155deg,#2a0b78 0%,#1d0752 70%,#150440 100%);box-shadow:0 24px 90px rgba(0,0,0,.45);color:#fff;max-height:calc(100dvh - 36px);overflow:auto}
+.eb-login-close{position:absolute;right:14px;top:10px;border:0;background:transparent;color:#e4d8ff;font-size:32px;cursor:pointer;line-height:1;padding:5px 8px}
+.eb-login-brand{display:flex;align-items:center;gap:10px;margin:0 36px 22px 0}.eb-login-brand img{width:42px;height:42px;object-fit:contain;border-radius:10px}.eb-login-brand span{font-weight:700;font-size:18px;line-height:1.1}.eb-login-brand small{display:block;margin-top:5px;color:#cdb9ff;font-size:12px;font-weight:400}
+.eb-login-modal h2{font-size:28px;line-height:1.15;margin:0 0 10px;color:#fff}.eb-login-desc{font-size:14px;color:#e4d8ff;line-height:1.5;margin:0 0 22px}
+.eb-field-label{display:block;margin:0 0 7px;font-size:13px;font-weight:600;color:#fff}.eb-field{width:100%;min-height:48px;border-radius:10px;border:1px solid rgba(205,185,255,.55);background:#160544;color:#fff;padding:12px 14px;font:inherit;outline:none}.eb-field:focus{border-color:#ffe269;box-shadow:0 0 0 3px rgba(255,226,105,.16)}.eb-field::placeholder{color:#ad9cd8}
+.eb-action{width:100%;min-height:46px;border-radius:10px;padding:12px 14px;border:0;font:inherit;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;transition:transform .15s,opacity .15s}.eb-action:disabled{opacity:.6;cursor:wait}.eb-action:active{transform:translateY(1px)}.eb-action-primary{background:linear-gradient(180deg,#ffe88b,#e7a200);color:#22095e;box-shadow:0 3px 0 #9e6900}.eb-action-secondary{background:rgba(255,255,255,.08);color:#e4d8ff;border:1px solid rgba(205,185,255,.2)}
+.eb-code-step{margin-top:18px;padding-top:17px;border-top:1px solid rgba(205,185,255,.22)}.eb-step-head{margin:0 0 9px;font-size:13px;font-weight:700;color:#fff}.eb-code-row{display:flex;gap:8px;align-items:center;margin-bottom:18px}.eb-code-row code{flex:1;display:block;min-width:0;background:#100333;border:1px dashed #ffe269;border-radius:10px;padding:14px 10px;text-align:center;letter-spacing:2px;font-size:20px;font-weight:800;color:#ffe269}.eb-copy{border:1px solid rgba(255,226,105,.6);background:rgba(255,226,105,.12);color:#ffe269;border-radius:9px;padding:12px 11px;font-size:13px;font-weight:700;cursor:pointer}.eb-profile-link{display:inline-block;color:#ffe269;text-underline-offset:3px;font-size:14px;font-weight:600;margin:2px 0 12px}.eb-small{color:#cdb9ff;font-size:12px;line-height:1.5;margin:0 0 8px}.eb-login-status{min-height:20px;font-size:13px;line-height:1.45;color:#ffe269;margin:12px 0 0}.eb-login-status[data-kind="error"]{color:#ff9f9f}.eb-login-status[data-kind="success"]{color:#8df0b6}.eb-login-foot{margin:13px 0 0;color:#ad9cd8;font-size:11px;line-height:1.4}
+@media(max-width:480px){.eb-login-modal{padding:24px 20px;border-radius:18px}.eb-login-modal h2{font-size:25px}.eb-code-row code{font-size:17px;letter-spacing:1.5px}}
+</style>
+<script>
+(function(){
+  const overlay=document.getElementById('ebLoginOverlay');
+  const username=document.getElementById('ebUsername');
+  const codeStep=document.getElementById('ebCodeStep');
+  const codeEl=document.getElementById('ebVerificationCode');
+  const statusEl=document.getElementById('ebLoginStatus');
+  const generateBtn=document.getElementById('ebGenerateCode');
+  const checkBtn=document.getElementById('ebCheckBio');
+  const openers=document.querySelectorAll('[data-open-login]');
+  let currentUsername='';
+  function message(text,kind){statusEl.textContent=text||'';statusEl.dataset.kind=kind||'';}
+  function busy(btn,on,label){if(on){btn.dataset.oldText=btn.textContent;btn.textContent=label||'Aguarde...';btn.disabled=true;}else{btn.textContent=btn.dataset.oldText||btn.textContent;btn.disabled=false;}}
+  function openModal(){overlay.hidden=false;document.body.style.overflow='hidden';setTimeout(()=>username.focus(),40);}
+  function closeModal(){overlay.hidden=true;document.body.style.overflow='';}
+  openers.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openModal();}));
+  document.getElementById('ebLoginClose').addEventListener('click',closeModal);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden)closeModal();});
+  document.getElementById('ebRestart').addEventListener('click',()=>{codeStep.hidden=true;message('');username.disabled=false;generateBtn.hidden=false;username.focus();});
+  async function post(url,data){const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify(data||{})});let d={};try{d=await r.json();}catch(e){}if(!r.ok)throw new Error(d.error||'Não foi possível concluir. Tente novamente.');return d;}
+  generateBtn.addEventListener('click',async()=>{
+    const name=username.value.trim();
+    if(!name){message('Digite seu nome de usuário do Roblox.','error');username.focus();return;}
+    busy(generateBtn,true,'Consultando Roblox...');message('');
+    try{
+      const result=await post('/api/auth/start',{username:name});
+      currentUsername=result.username;codeEl.textContent=result.code;
+      document.getElementById('ebProfileLink').href='https://www.roblox.com/users/'+encodeURIComponent(result.userId)+'/profile';
+      codeStep.hidden=false;username.disabled=true;generateBtn.hidden=true;
+      message('Conta encontrada. Agora coloque o código na bio do perfil.','success');
+    }catch(err){message(err.message,'error');}
+    finally{busy(generateBtn,false);}
+  });
+  document.getElementById('ebCopyCode').addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(codeEl.textContent);message('Código copiado. Cole na descrição do seu perfil Roblox.','success');}
+    catch(e){message('Selecione e copie o código manualmente.','error');}
+  });
+  checkBtn.addEventListener('click',async()=>{
+    if(!currentUsername){message('Gere primeiro um código.','error');return;}
+    busy(checkBtn,true,'Verificando bio...');message('Consultando a descrição pública do perfil...');
+    try{
+      await post('/api/auth/check',{username:currentUsername});
+      message('Identidade verificada. Abrindo o painel...','success');
+      window.location.assign('/painel');
+    }catch(err){message(err.message,'error');}
+    finally{busy(checkBtn,false);}
+  });
+  // If user returns with an existing server session, let the server decide whether it is authenticated.
+  fetch('/api/me',{credentials:'same-origin'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.authenticated)window.location.assign('/painel');}).catch(()=>{});
+})();
+</script>
+
+</body></html>

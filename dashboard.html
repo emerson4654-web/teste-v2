@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EB Manager | Início</title><meta name="theme-color" content="#4010bd"><link rel="icon" href="/favicon.png">
+<style>
+:root{--sidebar:#4210bb;--side-dark:#2b087c;--side-deep:#21045e;--purple:#4d11cb;--purple2:#351080;--panel:#21075c;--panel2:#2e0a77;--gold:#ffe05b;--gold2:#f3b700;--white:#fff;--muted:#d2c4ff;--line:rgba(223,207,255,.26);--text:#fff;--tile:rgba(119,72,220,.27);--tile-hover:rgba(145,99,255,.37);--shadow:rgba(8,0,35,.4)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text)}body{background:#190344;overflow:hidden}button,input{font:inherit}button{cursor:pointer}a{color:inherit}
+.app{height:100dvh;min-height:0;display:flex;background:#1a0349}
+.sidebar{width:325px;flex:0 0 325px;height:100dvh;background:linear-gradient(180deg,#4a13c8 0%,#371092 52%,#2b0b79 100%);border-right:1px solid rgba(208,184,255,.35);display:flex;flex-direction:column;padding:18px 19px 10px;position:relative;z-index:10;box-shadow:8px 0 28px rgba(5,0,29,.12)}
+.brand{height:70px;display:flex;align-items:center;gap:12px;padding:0 7px 13px;border-bottom:2px dashed rgba(235,220,255,.32);flex:0 0 auto}.brand-home{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}.brand-mark{width:46px;height:46px;object-fit:cover;border-radius:15px;box-shadow:0 2px 12px #20035c;flex:0 0 auto}.brand-name{font-weight:1000;font-size:22px;letter-spacing:-.8px;text-shadow:0 2px 0 #311070;white-space:nowrap}.brand-bell{margin-left:auto;background:transparent;border:0;color:#fff;padding:7px;border-radius:10px;font-size:23px;line-height:1}.brand-bell:hover{background:#ffffff19}
+.profile-card{margin:20px 0 10px;border:1px solid rgba(255,222,86,.45);border-radius:17px;background:rgba(35,5,94,.68);padding:12px 10px 9px;box-shadow:inset 0 1px 0 #ffffff0a;position:relative;flex:0 0 auto}.profile-card:before{content:"";position:absolute;top:7px;left:calc(50% - 11px);width:22px;height:5px;border-radius:9px;background:#16043f}.profile-row{display:flex;gap:10px;align-items:center;padding:5px 2px 10px}.avatar{width:42px;height:42px;border:2px solid var(--gold);border-radius:12px;background:linear-gradient(135deg,#d8d2a7,#5f8a6b);display:grid;place-items:center;font-size:25px;flex:0 0 auto;overflow:hidden}.user-info{min-width:0;line-height:1.2}.user-info strong{display:block;font-weight:1000;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:195px}.user-info span{font-size:11px;color:#ded0ff;display:block;margin-top:5px}.rank-up{width:100%;border:0;border-radius:13px;padding:8px 10px;background:linear-gradient(180deg,#ffe86b,#ffc400);color:#3c1489;display:flex;align-items:center;text-align:left;gap:8px;box-shadow:0 4px 0 #c28a00;font-weight:1000}.rank-up .coin{font-size:20px;width:22px;text-align:center}.rank-up b{display:block;font-size:14px;line-height:1.08}.rank-up small{display:block;font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:210px;margin-top:3px}
+.search{height:40px;border:1px solid rgba(211,187,255,.25);border-radius:13px;background:rgba(28,4,79,.72);display:flex;align-items:center;gap:9px;padding:0 12px;flex:0 0 auto}.search .search-icon{font-size:18px;color:#d9c8ff}.search input{width:100%;min-width:0;outline:0;border:0;background:transparent;color:#fff;font-size:13px}.search input::placeholder{color:#c7b6f1}.kbd{border:1px solid #9171d2;background:#4c2297;border-radius:6px;padding:2px 6px;font-size:10px;color:#e2d5ff;white-space:nowrap}
+.nav-scroll{min-height:0;overflow-y:auto;overflow-x:hidden;flex:1;margin:8px -4px 8px 0;padding:0 4px 10px 0;scrollbar-width:thin;scrollbar-color:#8b62dd transparent}.nav-scroll::-webkit-scrollbar{width:5px}.nav-scroll::-webkit-scrollbar-thumb{background:#8b62dd;border-radius:10px}.section-label{display:flex;align-items:center;justify-content:space-between;color:var(--gold);font-size:12px;font-weight:1000;padding:9px 4px 7px;text-shadow:0 1px 0 #7d4a00}.shortcut-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:7px}.shortcut:nth-child(n+5){display:none}.shortcut{min-height:53px;text-decoration:none;border:1px solid rgba(228,208,255,.07);border-radius:12px;background:var(--tile);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;padding:6px 2px;text-align:center;transition:background .14s,transform .14s}.shortcut:hover,.shortcut.active{background:var(--tile-hover);border-color:#a87cf1}.shortcut .ico{font-size:20px;color:#fff0a0;line-height:1.05}.shortcut span:last-child{font-size:10px;font-weight:800;line-height:1.1;overflow-wrap:anywhere}.main-link{width:100%;min-height:42px;display:flex;gap:10px;align-items:center;text-align:left;border-radius:12px;padding:8px 11px;border:1px solid transparent;background:transparent;color:#fff;text-decoration:none;font-weight:800;font-size:13px;margin:3px 0}.main-link .ico{width:20px;text-align:center;font-size:17px;color:#ffe45e}.main-link:hover,.main-link.active{background:rgba(31,5,85,.72);border-color:rgba(255,216,72,.4)}.main-link.active{box-shadow:inset 3px 0 #ffda3c}.group{margin-top:2px}.group-title{width:100%;border:0;background:transparent;color:var(--gold);padding:9px 5px 7px;display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:1000;text-align:left;text-shadow:0 1px #7b4d00}.chevron{color:#dbcbff;transition:transform .15s}.group.closed .chevron{transform:rotate(-90deg)}.group.closed .group-items{display:none}.group-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:0 1px 8px}.nav-tile{min-height:78px;background:var(--tile);border:1px solid rgba(228,208,255,.06);border-radius:13px;color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;text-align:center;padding:8px 4px;font-weight:850;transition:background .14s}.nav-tile:hover,.nav-tile.active{background:var(--tile-hover);border-color:#a87cf1}.nav-tile .ico{font-size:21px;line-height:1;color:#fff}.nav-tile span:last-child{font-size:10px;line-height:1.15}.side-footer #logout{width:auto;min-width:58px;height:36px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:12px;font-weight:800}.side-footer #logout span{display:inline}
+.side-footer{border-top:2px dashed rgba(231,213,255,.28);padding:10px 4px 0;display:flex;justify-content:space-between;gap:4px;flex:0 0 auto}.round-tool{width:36px;height:36px;border:1px solid rgba(226,207,255,.06);border-radius:50%;background:rgba(26,3,74,.58);color:#d9c9ff;display:grid;place-items:center;font-size:18px}.round-tool:hover{background:#5f25c6}.round-tool.selected{background:linear-gradient(#ffeb70,#ffc400);color:#411092;box-shadow:0 0 0 2px #a878ff}
+.main{min-width:0;flex:1;height:100dvh;overflow:auto;position:relative;padding:40px 40px 45px;background:radial-gradient(ellipse at 52% -20%,#4d238c 0,#290a69 38%,#1b054c 75%)}.main:before{content:"";position:fixed;pointer-events:none;inset:0 0 0 325px;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='210' height='180' viewBox='0 0 210 180'%3E%3Cg fill='none' stroke='%23765ab0' stroke-width='1' opacity='.48'%3E%3Cpath d='M-20 18 C5 -3 39 3 42 24 S15 48 29 63 S67 61 72 39 S45 7 77 0 S120 10 111 29 S77 47 93 66 S139 82 155 55 S174 12 210 26'/%3E%3Cpath d='M-20 28 C8 7 29 13 32 29 S10 49 24 68 S66 73 81 49 S50 19 80 10 S111 17 103 31 S68 51 89 75 S143 95 166 62 S181 24 210 38'/%3E%3Cpath d='M-15 100 C8 72 32 78 44 96 S44 124 22 131 S1 158 25 172 S62 161 73 141 S102 112 120 130 S133 162 158 163 S191 133 225 150'/%3E%3Cpath d='M-18 112 C4 86 28 88 36 103 S36 121 18 139 S9 154 29 164 S59 148 68 133 S101 101 128 125 S139 151 159 153 S192 124 226 138'/%3E%3Cpath d='M140 -20 C124 8 139 30 162 28 S195 9 214 15 M137 -9 C128 8 147 20 165 18 S196 0 216 5'/%3E%3C/g%3E%3C/svg%3E");background-repeat:repeat;background-size:210px 180px;z-index:0}.main>*{position:relative;z-index:1}.mobile-bar{display:none;align-items:center;gap:10px;margin:-20px 0 18px}.mobile-menu{border:1px solid var(--line);border-radius:10px;background:#2d0a76;color:#fff;padding:8px 12px;font-size:20px}.announcement{display:flex;align-items:center;gap:13px;min-height:52px;padding:13px 17px;border:1px solid rgba(220,199,255,.18);border-radius:18px;background:rgba(46,17,104,.66);box-shadow:0 7px 20px #10002c22;color:#e9e1ff;font-size:14px;margin-bottom:18px}.announcement .megaphone{font-size:19px}.announcement button{margin-left:auto;background:transparent;border:0;color:#d0bff9;font-size:19px}.promo{min-height:116px;border:3px solid #ffd923;border-radius:25px;background:linear-gradient(100deg,rgba(71,27,136,.98),rgba(41,8,105,.98));display:grid;grid-template-columns:54px minmax(0,1fr) 195px;align-items:center;gap:15px;padding:15px 18px;margin-bottom:16px;box-shadow:0 0 0 1px rgba(255,227,64,.24),0 9px 28px #10002c33;position:relative}.promo-symbol{width:53px;height:53px;border-radius:15px;background:linear-gradient(#ffe875,#ffbf00);color:#321078;display:grid;place-items:center;font-size:28px;font-weight:1000}.promo h2{margin:0 0 5px;color:#ffe365;font-size:18px;font-weight:1000;line-height:1.1}.promo p{margin:0;color:#e0d4ff;font-size:13px;line-height:1.5}.promo p strong{color:#fff}.social-proof{font-size:11px!important;margin-top:7px!important;color:#c9b9f2!important}.promo-actions{display:flex;flex-direction:column;gap:8px}.timer{border:1px solid rgba(255,92,143,.35);border-radius:10px;background:#4a125d;color:#ff809b;min-height:31px;display:flex;justify-content:center;align-items:center;font-size:12px;font-weight:900}.gold-button{border:0;border-radius:14px;padding:11px 14px;background:linear-gradient(180deg,#ffeb75,#ffc300);color:#341078;font-weight:1000;box-shadow:0 4px 0 #bf8700;text-align:center;white-space:nowrap}.gold-button:hover{filter:brightness(1.05);transform:translateY(-1px)}.promo-close{position:absolute;right:8px;top:6px;border:0;background:#16043bb0;color:#e6d7ff;border-radius:7px;width:22px;height:22px;font-size:16px}.page-title-row{display:flex;align-items:center;gap:12px;margin:5px 0 4px}.home-icon{width:61px;height:61px;border-radius:50%;border:2px solid #fff0a0;background:linear-gradient(#fff17b,#ffbf00);color:#341078;display:grid;place-items:center;font-size:30px;box-shadow:inset 0 0 0 3px #e4a900,0 0 0 2px #8752df}.page-title{font-size:clamp(33px,3vw,43px);line-height:1;font-weight:1000;letter-spacing:-1px;margin:0;text-shadow:0 2px 0 #19044b}.page-title:after{content:"";display:block;width:56px;height:4px;border-radius:5px;background:#ffdf28;margin-top:10px}.page-description{color:#c8b7f0;font-size:14px;margin:8px 0 25px}.hero-card{min-height:432px;border:3px solid #ffd92d;border-radius:27px;background:linear-gradient(120deg,rgba(28,5,82,.97),rgba(35,5,104,.98));box-shadow:0 0 0 1px #ffc92244,0 12px 30px #09002035;padding:34px 36px;position:relative;overflow:hidden}.hero-card:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0,rgba(92,43,178,.25),transparent 50%);pointer-events:none}.hero-content{position:relative;max-width:680px}.tag{display:inline-block;padding:6px 10px;border:1px solid #9253ff;background:#4d16bb;color:#ffdf43;border-radius:7px;font-size:12px;font-weight:1000;margin-bottom:14px;box-shadow:0 0 0 1px #7737e0}.hero-card h2{font-size:clamp(31px,3.2vw,43px);line-height:1.04;letter-spacing:-1.2px;margin:0 0 15px;font-weight:1000;max-width:590px;text-shadow:0 2px 0 #170443}.hero-card p{font-size:15px;line-height:1.75;color:#d5c7fa;margin:0 0 19px;max-width:680px}.hero-card p strong{color:#fff}.action-row{display:flex;gap:12px;flex-wrap:wrap}.action-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;border:0;border-radius:14px;padding:13px 17px;font-weight:1000;color:#fff;background:linear-gradient(#6d2ce0,#5013c4);box-shadow:0 4px 0 #33068d}.action-button.primary{background:linear-gradient(180deg,#ffea71,#ffc300);color:#321078;box-shadow:0 4px 0 #bd8400}.action-button .ico{font-size:19px}.updated{margin-top:24px;background:rgba(24,3,70,.64);border:1px solid rgba(213,191,255,.18);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:10px;color:#c9bbec;font-size:12px;max-width:530px}.updated strong{color:#ffde49}.updated .arrow{margin-left:auto;font-size:20px}.content-panel{display:none;border:2px solid #4d2a8e;background:rgba(30,5,82,.95);border-radius:22px;padding:26px;margin-top:12px;min-height:320px}.content-panel.visible{display:block}.content-panel h2{font-size:27px;margin:0 0 8px}.content-panel p{color:#d2c4fa}.module-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}.module-card{background:#3b128f;border:1px solid #7347be;border-radius:15px;padding:16px;min-height:110px}.module-card strong{display:block;margin-bottom:7px}.module-card span{font-size:13px;color:#cdbdf4}.toast{position:fixed;right:20px;bottom:20px;z-index:100;background:#210654;border:1px solid #8c62d7;color:#fff;padding:12px 17px;border-radius:12px;box-shadow:0 10px 30px #0006;display:none;max-width:min(400px,calc(100vw - 40px))}.side-overlay{display:none}
+@media(max-width:1050px){.sidebar{width:290px;flex-basis:290px;padding-left:14px;padding-right:14px}.main{padding:28px 25px 36px}.main:before{left:290px}.promo{grid-template-columns:48px minmax(0,1fr) 170px;gap:12px;padding:13px}.promo h2{font-size:16px}.hero-card{padding:28px}}
+@media(max-width:760px){body{overflow:hidden}.shortcut:nth-child(n+5){display:flex}.sidebar{width:100%;flex-basis:100%;padding:15px 18px 9px;border-right:0;box-shadow:none}.brand{height:61px;padding-bottom:11px}.brand-name{font-size:21px}.profile-card{margin-top:18px}.main{display:none;padding:19px 15px 30px;width:100%;}.main.mobile-open{display:block}.main:before{inset:0}.app{position:relative}.sidebar.mobile-hidden{display:none}.mobile-bar{display:flex}.announcement{font-size:13px;min-height:46px;margin-bottom:13px;padding:10px 12px}.promo{grid-template-columns:44px minmax(0,1fr);gap:10px;border-radius:20px;padding:13px;margin-bottom:18px}.promo-symbol{width:43px;height:43px;font-size:23px}.promo h2{font-size:16px;padding-right:12px}.promo p{font-size:12px}.promo-actions{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.15fr;margin-top:3px}.timer{min-height:39px}.gold-button{padding:10px 9px;font-size:12px}.social-proof{display:none}.page-title-row{gap:10px}.home-icon{width:48px;height:48px;font-size:23px}.page-title{font-size:32px}.page-title:after{margin-top:8px}.page-description{font-size:12px;margin:8px 0 19px}.hero-card{padding:22px 20px;min-height:0;border-radius:20px}.tag{font-size:11px;margin-bottom:12px}.hero-card h2{font-size:31px;line-height:1.08}.hero-card p{font-size:13px;line-height:1.65}.action-row{gap:10px}.action-button{flex:1;padding:12px 10px;font-size:12px}.updated{font-size:11px;margin-top:20px;padding:10px}.content-panel{padding:19px}.content-panel h2{font-size:24px}}
+@media(max-width:360px){.sidebar{padding-left:18px;padding-right:18px}.brand-name{font-size:20px}.shortcut-grid{gap:5px}.shortcut{min-height:51px}.shortcut span:last-child{font-size:9px}.group-items{gap:5px}.nav-tile{min-height:72px}.side-footer{gap:3px}.round-tool{width:32px;height:32px;font-size:16px}.hero-card h2{font-size:28px}.action-button{font-size:11px}}
+
+/* Formulário funcional de entrega de patente */
+.promotion-intro{background:#321078;border:1px solid #7950be;border-radius:14px;padding:14px 16px;margin:16px 0;color:#e9ddff;font-size:13px}
+.promotion-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(230px,.8fr);gap:15px;margin-top:15px;align-items:start}
+.promotion-card{background:#260761;border:1px solid #6b42b1;border-radius:17px;padding:18px;min-width:0}
+.promotion-card h3{margin:0 0 14px;font-size:17px;color:#ffe36a}
+.promotion-field{display:flex;flex-direction:column;gap:7px;margin-bottom:15px;min-width:0}
+.promotion-field label{font-weight:850;font-size:12px;color:#f1eaff}
+.promotion-field input[type=text],.promotion-field input[type=number],.promotion-field select,.promotion-field textarea{width:100%;border:1px solid #7958b7;background:#180344;color:#fff;border-radius:10px;padding:12px 13px;font:inherit;outline:none}
+.promotion-field input[type=text]:focus,.promotion-field input[type=number]:focus,.promotion-field select:focus,.promotion-field textarea:focus{border-color:#ffe269;box-shadow:0 0 0 2px #ffe26920}
+.promotion-field textarea{resize:vertical;min-height:105px}
+.promotion-field input[type=file]{width:100%;padding:10px;border:1px dashed #8a68c7;border-radius:10px;background:#1a044a;color:#d9cbfa;font:inherit;font-size:12px}
+.promotion-row{display:flex;gap:8px;align-items:stretch}.promotion-row input{min-width:0;flex:1}
+.promotion-button{border:0;border-radius:10px;background:linear-gradient(#ffeb75,#ffc300);color:#321078;font-weight:950;padding:11px 14px;cursor:pointer;font:inherit;white-space:nowrap}
+.promotion-button:disabled{opacity:.55;cursor:wait}.promotion-button.secondary{background:#4b1c9c;color:#fff;border:1px solid #8e66d5}.promotion-submit{width:100%;margin-top:3px;box-shadow:0 4px 0 #a87500;padding:13px}
+.promotion-list{display:flex;flex-direction:column;gap:8px;margin:10px 0 15px}.promotion-target{display:flex;align-items:center;gap:9px;padding:10px 11px;border-radius:11px;background:#35107f;border:1px solid #7149b5;min-width:0}.promotion-target .target-avatar{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:#ffd94e;color:#321078;display:grid;place-items:center;font-weight:1000}.promotion-target .target-details{flex:1;min-width:0}.promotion-target strong{display:block;overflow-wrap:anywhere;font-size:13px}.promotion-target small{display:block;color:#ccb8f4;font-size:11px;overflow-wrap:anywhere}.remove-target{border:1px solid #8058bc;border-radius:8px;background:#260761;color:#fff;padding:6px 9px;cursor:pointer}
+.promotion-preview{display:none;margin-top:9px;max-width:100%;border:1px solid #7958b7;border-radius:12px;padding:8px;background:#180344}.promotion-preview.visible{display:block}.promotion-preview img{display:block;max-height:220px;max-width:100%;margin:auto;border-radius:8px;object-fit:contain}.promotion-preview small{display:block;color:#cdbdf4;padding-top:6px;overflow-wrap:anywhere}
+.promotion-message{display:none;border-radius:10px;padding:11px 13px;margin-top:12px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.promotion-message.visible{display:block}.promotion-message.ok{background:#113d2b;border:1px solid #3a946c;color:#c8ffe1}.promotion-message.error{background:#4a1734;border:1px solid #a74778;color:#ffe0ed}.promotion-message.info{background:#24104f;border:1px solid #8058bc;color:#e8dcff}
+.promotion-rules{font-size:12px;color:#d2c3f5;line-height:1.7}.promotion-rules strong{display:block;color:#ffe269;font-size:14px;margin-bottom:8px}.promotion-rules ul{margin:0;padding-left:18px}.promotion-config-warning{padding:11px;border-radius:10px;background:#4b3211;border:1px solid #ae8232;color:#ffefbd;font-size:12px;margin-top:12px}
+.promotion-history{display:flex;flex-direction:column;gap:9px;margin-top:12px}.promotion-history-item{padding:12px;background:#321078;border:1px solid #6a44a9;border-radius:11px}.promotion-history-item strong{display:block;font-size:13px;color:#fff}.promotion-history-item span,.promotion-history-item p{display:block;margin:4px 0 0;color:#cfbef5;font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere}.empty-history{color:#bca9e7;font-size:12px;padding:8px 0}
+@media(max-width:760px){.promotion-layout{grid-template-columns:1fr}.promotion-card{padding:15px}.promotion-row{flex-direction:column}.promotion-row .promotion-button{width:100%}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <a href="#inicio" class="brand-home" data-page="Início" data-home="true" aria-label="EB Manager início"><img class="brand-mark" src="/app-icon.png" alt=""><span class="brand-name">EB Manager</span></a><button class="brand-bell" type="button" id="notifications" aria-label="Notificações">♧</button>
+  </div>
+  <section class="profile-card" aria-label="Perfil do militar">
+    <div class="profile-row"><div class="avatar" id="avatar">🪖</div><div class="user-info"><strong id="userName">Carregando...</strong><span id="userRankLabel">Carregando patente...</span></div></div>
+    <button class="rank-up" type="button" data-page="Subir de patente"><span class="coin">⛭</span><span><b>Subir de patente</b><small id="nextRankHint">Consultando a hierarquia...</small></span></button>
+  </section>
+  <label class="search"><span class="search-icon">⌕</span><input id="navSearch" type="search" placeholder="Para onde vamos?" autocomplete="off"><span class="kbd">Ctrl K</span></label>
+  <nav class="nav-scroll" id="navScroll" aria-label="Menu principal">
+    <div class="section-label">Atalhos</div>
+    <div class="shortcut-grid">
+      <a class="shortcut" href="#cdp" data-page="Capacitação (CDP)"><span class="ico">⌛</span><span>CDP</span></a>
+      <a class="shortcut" href="#entregar" data-page="Entregar Patente"><span class="ico">☑</span><span>Entregar</span></a>
+      <a class="shortcut" href="#registro" data-page="Registro"><span class="ico">▤</span><span>Registro</span></a>
+      <a class="shortcut" href="#ranking" data-page="Ranking"><span class="ico">🏆</span><span>Ranking</span></a>
+      <a class="shortcut" href="#acoes" data-page="Registro de Ações"><span class="ico">▤</span><span>Registro de Ações</span></a>
+      <a class="shortcut" href="#regras" data-page="Regras e Documentos"><span class="ico">⚖</span><span>Regras e Documentos</span></a>
+      <a class="shortcut" href="#formularios" data-page="Formulários"><span class="ico">☷</span><span>Formulários</span></a>
+    </div>
+    <a class="main-link active" href="#inicio" data-page="Início" data-home="true"><span class="ico">⌂</span><span>Início</span></a>
+    <section class="group" data-group="Minha carreira">
+      <button class="group-title" type="button"><span>Minha carreira</span><span class="chevron">⌄</span></button>
+      <div class="group-items">
+        <a class="nav-tile" href="#ebcoin" data-page="Loja EBCOIN"><span class="ico">◉</span><span>Loja EBCOIN</span></a>
+        <a class="nav-tile" href="#compras" data-page="Minhas Compras"><span class="ico">▤</span><span>Minhas Compras</span></a>
+        <a class="nav-tile" href="#capacitacao" data-page="Capacitação (CDP)"><span class="ico">⌛</span><span>Capacitação (CDP)</span></a>
+        <a class="nav-tile" href="#historico" data-page="Histórico de Patentes"><span class="ico">▧</span><span>Histórico de Patentes</span></a>
+      </div>
+    </section>
+    <section class="group" data-group="Quartel">
+      <button class="group-title" type="button"><span>Quartel</span><span class="chevron">⌄</span></button>
+      <div class="group-items">
+        <a class="nav-tile" href="#hierarquia" data-page="Hierarquia"><span class="ico">▱</span><span>Hierarquia</span></a>
+        <a class="nav-tile" href="#ranking" data-page="Ranking"><span class="ico">🏆</span><span>Ranking</span></a>
+        <a class="nav-tile" href="#estatisticas" data-page="Estatísticas"><span class="ico">▥</span><span>Estatísticas</span></a>
+        <a class="nav-tile" href="#registro" data-page="Registro"><span class="ico">▤</span><span>Registro</span></a>
+        <a class="nav-tile" href="#regras" data-page="Regras e Documentos"><span class="ico">⚖</span><span>Regras e Documentos</span></a>
+        <a class="nav-tile" href="#formularios" data-page="Formulários"><span class="ico">✎</span><span>Formulários</span></a>
+      </div>
+    </section>
+    <section class="group" data-group="Comando">
+      <button class="group-title" type="button"><span>Comando</span><span class="chevron">⌄</span></button>
+      <div class="group-items">
+        <a class="nav-tile" href="#entregapatente" data-page="Entregar Patente"><span class="ico">♧</span><span>Entregar Patente</span></a>
+        <a class="nav-tile" href="#patentesdivisoes" data-page="Promoção por Divisões"><span class="ico">⬡</span><span>Promoção por Divisões</span></a>
+        <a class="nav-tile" href="#painelcde" data-page="Painel CDE"><span class="ico">▣</span><span>Painel CDE</span></a>
+        <a class="nav-tile" href="#cgex" data-page="CGEx" id="cgexNav" style="display:none"><span class="ico">⚖</span><span>CGEx</span></a>
+        <a class="nav-tile" href="#historico-divisoes" data-page="Histórico das Divisões"><span class="ico">▧</span><span>Histórico das Divisões</span></a>
+      </div>
+    </section>
+    <section class="group" data-group="Ajuda">
+      <button class="group-title" type="button"><span>Ajuda</span><span class="chevron">⌄</span></button>
+      <div class="group-items">
+        <a class="nav-tile" href="#novidades" data-page="Novidades"><span class="ico">✧</span><span>Novidades</span></a>
+        <a class="nav-tile" href="#bugs" data-page="Bugs e Ideias"><span class="ico">♧</span><span>Bugs e Ideias</span></a>
+        <a class="nav-tile" href="#suporte" data-page="Suporte"><span class="ico">?</span><span>Suporte</span></a>
+      </div>
+    </section>
+  </nav>
+  <footer class="side-footer" aria-label="Configurações rápidas">
+    <button class="round-tool" type="button" title="Silenciar notificações" data-tool="Notificações silenciadas">♩</button>
+    <button class="round-tool" type="button" title="Atualizar" id="refresh">⟳</button>
+    <button class="round-tool selected" type="button" title="Modo noturno" data-theme="night">☾</button>
+    <button class="round-tool" type="button" title="Brilho" data-tool="Configuração de brilho">☼</button>
+    <button class="round-tool" type="button" title="Tela" data-tool="Preferência de tela">▣</button>
+    <button class="round-tool" type="button" title="Sair da conta" id="logout" aria-label="Sair da conta" title="Sair da conta">⇥ <span>Sair</span></button>
+  </footer>
+</aside>
+<main class="main" id="main">
+  <div class="mobile-bar"><button class="mobile-menu" id="showMenu" aria-label="Abrir menu">☰</button><strong>EB Manager</strong><span style="margin-left:auto;color:#bba5ef;font-size:12px">PORTAL DO EFETIVO</span></div>
+  <div id="homeContent">
+    <div class="announcement" id="announcement"><span class="megaphone">⚑</span><span>Façam treinos pra recompensas!</span><button type="button" id="closeAnnouncement" aria-label="Fechar aviso">×</button></div>
+    <section class="promo" id="promo">
+      <div class="promo-symbol">↗</div>
+      <div><h2>SUBA DE PATENTE AGORA</h2><p id="promoRankText">Consulte sua patente atual e a próxima etapa da hierarquia.</p><p class="social-proof">Patente consultada no grupo oficial do Roblox</p></div>
+      <div class="promo-actions"><div class="timer">◴ &nbsp;00:00:00</div><button class="gold-button" type="button" data-page="Subir de patente">Quero essa patente &nbsp;➜</button></div>
+      <button class="promo-close" type="button" id="closePromo" aria-label="Fechar promoção">×</button>
+    </section>
+    <div class="page-title-row"><div class="home-icon">⌂</div><h1 class="page-title" id="pageHeading">Início</h1></div>
+    <p class="page-description" id="pageDescription">Documentação, diretrizes e créditos do EB Manager.</p>
+    <section class="hero-card" id="heroCard">
+      <div class="hero-content"><span class="tag">EB Manager</span><h2>O quartel inteiro num painel só.</h2><p>O sistema oficial de gestão militar do <strong>Exército Brasileiro Emerson</strong> no Roblox: promoções, rebaixamentos, relatórios de treino, hierarquia e o registro de cada ação, com segurança e organização para o Alto Comando e os instrutores.</p><div class="action-row"><a class="action-button primary" href="#perfil" data-page="Meu perfil"><span class="ico">☻</span>Abrir meu perfil</a><a class="action-button" href="#hierarquia" data-page="Hierarquia"><span class="ico">▱</span>Ver a hierarquia</a></div><div class="updated"><span>♧</span><span>Atualizado em <strong>24/10/2026</strong>: Loja de Patentes nova</span><span class="arrow">›</span></div></div>
+    </section>
+  </div>
+  <section class="content-panel" id="moduleContent" aria-live="polite"><div class="tag">EB Manager</div><h2 id="moduleHeading">Módulo</h2><p id="moduleDescription">Área do portal.</p><div class="module-grid" id="moduleGrid"></div></section>
+</main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(async function(){
+ const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+ const sidebar=$('#sidebar'),main=$('#main'),toast=$('#toast');let toastTimer;
+ function showToast(message){toast.textContent=message;toast.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.style.display='none',2800)}
+ let currentUser=null; let rankingRefreshTimer=null;
+ try{const r=await fetch('/api/me',{credentials:'same-origin'});if(!r.ok){location.replace('/');return}const data=await r.json();if(!data.authenticated||!data.user){location.replace('/');return}currentUser=data.user;const cgexNav=$('#cgexNav');if(cgexNav)cgexNav.style.display=data.user.cgexAccess?'':'none';$('#userName').textContent=data.user.displayName||data.user.username||'Militar';$('#avatar').textContent=(data.user.displayName||data.user.username||'M').trim().slice(0,1).toUpperCase();const rankName=data.user.groupRole?.name||'Patente não identificada';$('#userRankLabel').textContent=rankName;$('#nextRankHint').textContent=data.user.nextRoleName?'Próxima: '+data.user.nextRoleName:(data.user.groupRole?.blocked?'Cargo protegido':'Hierarquia consultada');$('#promoRankText').textContent=data.user.groupRole?.member===true?'Sua patente atual: '+rankName+(data.user.nextRoleName?' • Próxima: '+data.user.nextRoleName:''):'Não foi possível confirmar uma patente do grupo nesta consulta.';}
+ catch(err){location.replace('/');return}
+ const moduleDescriptions={
+  'Meu perfil':'Veja as informações básicas da sua identidade verificada no Roblox.',
+  'Subir de patente':'Consulte as opções de promoção e as condições da sua próxima patente.',
+  'Capacitação (CDP)':'Consulte seu progresso de CDP e, se autorizado, registre horas e o status dos militares.',
+  'Entregar Patente':'Consulte a patente do militar, anexe a foto do treinamento e registre as observações para entregar a próxima patente.',
+  'Registro':'Consulte registros e atividades vinculados ao seu efetivo.',
+  'Ranking':'Veja a classificação e os destaques de atividade do quartel.',
+  'Registro de Ações':'Consulte o histórico de ações administrativas registradas no portal.',
+  'Regras e Documentos':'Consulte diretrizes, regras internas e documentos do Exército Brasileiro Emerson.',
+  'Formulários':'Acesse os formulários disponíveis para solicitações e relatórios.',
+  'Início':'Documentação, diretrizes e créditos do EB Manager.',
+  'Loja EBCOIN':'Consulte a loja e os recursos relacionados a EBCOIN.',
+  'Minhas Compras':'Veja os itens e compras associados à sua conta.',
+  'Histórico de Patentes':'Consulte o histórico de alterações de patente da sua carreira.',
+  'Hierarquia':'Consulte as patentes e a organização hierárquica do efetivo.',
+  'Estatísticas':'Veja indicadores gerais e estatísticas do quartel.',
+  'Promoção por Divisões':'Promova militares nas divisões em que seu cargo autoriza e gerencie solicitações de entrada.',
+  'Histórico das Divisões':'Consulte promoções por divisão, atribuições do CDE e decisões sobre solicitações de entrada.',
+  'Painel CDE':'Área de comando restrita ao cargo 908892004 no grupo EB; atribua cargos até Dono e aceite solicitações nos grupos cadastrados.',
+  'CGEx':'Painel de atribuição de patente do EB. Acesso restrito à CGEx, Sub Criador e Criador.',
+  'Novidades':'Confira avisos e atualizações do EB Manager.',
+  'Bugs e Ideias':'Envie sugestões e relate problemas encontrados no portal.',
+  'Suporte':'Encontre ajuda para acessar e utilizar os recursos do portal.'
+ };
+ const promotionTargets=[];
+ function setPromotionMessage(message,type='info'){
+   const el=$('#promotionMessage'); if(!el)return;el.textContent=message;el.className='promotion-message visible '+type;
+ }
+ function refreshTargetList(){
+   const list=$('#promotionTargets');if(!list)return;list.replaceChildren();
+   if(!promotionTargets.length){const empty=document.createElement('div');empty.className='empty-history';empty.textContent='Nenhum militar adicionado ainda.';list.append(empty);return;}
+   promotionTargets.forEach((target,index)=>{
+     const item=document.createElement('div');item.className='promotion-target';
+     const avatar=document.createElement('div');avatar.className='target-avatar';avatar.textContent=(target.displayName||target.username||'M').slice(0,1).toUpperCase();
+     const detail=document.createElement('div');detail.className='target-details';
+     const name=document.createElement('strong');name.textContent=target.displayName+' (@'+target.username+')';
+     const role=document.createElement('small');role.textContent=target.blocked?target.currentRole+' • CARGO PROTEGIDO':target.currentRole+' → '+(target.nextRole||'sem próxima patente definida')+(target.nextRoleBlocked?' • destino bloqueado':'');detail.append(name,role);
+     const remove=document.createElement('button');remove.type='button';remove.className='remove-target';remove.textContent='Remover';remove.addEventListener('click',()=>{promotionTargets.splice(index,1);refreshTargetList();});
+     item.append(avatar,detail,remove);list.append(item);
+   });
+ }
+ async function apiPost(url,payload){
+   const response=await fetch(url,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+   const data=await response.json().catch(()=>({error:'Resposta inválida do servidor.'}));
+   if(!response.ok)throw new Error(data.error||'O servidor não conseguiu concluir a operação.');return data;
+ }
+ function compressImage(file){
+   return new Promise((resolve,reject)=>{
+     if(!file)return resolve(null);
+     if(!/^image\/(jpeg|png|webp)$/.test(file.type)){reject(new Error('Use uma imagem JPG, PNG ou WEBP.'));return;}
+     if(file.size>12*1024*1024){reject(new Error('A imagem original precisa ter menos de 12 MB.'));return;}
+     const image=new Image();const localUrl=URL.createObjectURL(file);
+     image.onload=()=>{
+       const maxW=1200,maxH=900,scale=Math.min(1,maxW/image.width,maxH/image.height);
+       const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(image.width*scale));canvas.height=Math.max(1,Math.round(image.height*scale));
+       const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0,canvas.width,canvas.height);URL.revokeObjectURL(localUrl);
+       let quality=.78;let data=canvas.toDataURL('image/jpeg',quality);
+       while(data.length>850*1024&&quality>.42){quality-=.08;data=canvas.toDataURL('image/jpeg',quality);}
+       if(data.length>900*1024){reject(new Error('A foto ficou grande mesmo após compactar. Escolha uma foto menor.'));return;}
+       resolve(data);
+     };
+     image.onerror=()=>{URL.revokeObjectURL(localUrl);reject(new Error('Não consegui ler esta imagem.'));};image.src=localUrl;
+   });
+ }
+ async function loadPromotionHistory(){
+   const holder=$('#promotionHistory');if(!holder)return;holder.innerHTML='<div class="empty-history">Carregando registros...</div>';
+   try{
+     const r=await fetch('/api/promotions/history',{credentials:'same-origin'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Não foi possível consultar os registros.');holder.replaceChildren();
+     const batches=d.records||[];if(!batches.length){holder.innerHTML='<div class="empty-history">Nenhuma promoção registrada neste servidor ainda.</div>';return;}
+     batches.forEach(batch=>{
+       (batch.results||[]).forEach(result=>{
+         const card=document.createElement('div');card.className='promotion-history-item';
+         const title=document.createElement('strong');title.textContent=(result.status==='success'?'✓ ':'! ')+(result.displayName||result.username||'Militar')+(result.status==='success'?' — '+(result.toRole||'promovido'):'');
+         const meta=document.createElement('span');meta.textContent=new Date(batch.createdAt).toLocaleString('pt-BR')+' • Responsável: '+(batch.promoter?.username||'—')+(batch.hasPhoto?' • Foto anexada':'');
+         const obs=document.createElement('p');obs.textContent='Observações: '+(batch.observations||'—');card.append(title,meta,obs);holder.append(card);
+       });
+     });
+   }catch(e){holder.innerHTML='';const message=document.createElement('div');message.className='empty-history';message.textContent=e.message;holder.append(message);}
+ }
+ function renderPromotionModule(){
+   const grid=$('#moduleGrid');if(!grid)return;
+   const authorized=!!currentUser?.canPromote;
+   grid.innerHTML=`
+    <div class="promotion-intro" style="grid-column:1/-1">Registre o treinamento e promova um militar por vez. Informe o usuário do Roblox, anexe a foto e escreva as observações. Quando a promoção for concluída, o treinamento entra automaticamente no Ranking. O servidor consulta a patente no grupo <strong>13616747</strong>, verifica o CDP e aplica o intervalo global de 30 minutos.</div>
+    ${authorized?'':'<div class="promotion-config-warning" style="grid-column:1/-1">Os campos ficam visíveis, mas o servidor só executa a promoção quando seu cargo estiver autorizado. Configure o ID do cargo promotor em EB_PROMOTER_ROLE_IDS no Render. Não use o ID de um cargo bloqueado para receber promoção.</div>'}
+    <div class="promotion-layout" style="grid-column:1/-1">
+     <section class="promotion-card">
+      <h3>Registrar treinamento e entregar patente</h3>
+      <div class="promotion-field"><label for="militaryUsername">Nome de usuário do militar</label><div class="promotion-row"><input id="militaryUsername" type="text" placeholder="Ex.: NomeDoMilitar" autocomplete="off"><button class="promotion-button secondary" id="addMilitary" type="button">+ Adicionar militar</button></div></div>
+      <div class="promotion-field"><label>Militar adicionado (1 por intervalo de 30 minutos)</label><div class="promotion-list" id="promotionTargets"><div class="empty-history">Nenhum militar adicionado ainda.</div></div></div>
+      <div class="promotion-field"><label for="trainingPhoto">Foto do treinamento (opcional)</label><input id="trainingPhoto" type="file" accept="image/jpeg,image/png,image/webp"><div id="trainingPreview" class="promotion-preview"><img id="trainingPreviewImg" alt="Prévia da foto do treinamento"><small id="trainingPhotoInfo"></small></div></div>
+      <div class="promotion-field"><label for="promotionObservations">Observações do treinamento</label><textarea id="promotionObservations" placeholder="Descreva o treinamento, o desempenho dos militares e outras observações..."></textarea></div>
+      <button class="promotion-button promotion-submit" id="submitPromotion" type="button">REGISTRAR TREINO E PROMOVER</button>
+      <div id="promotionMessage" class="promotion-message" role="status" aria-live="polite"></div>
+      ${currentUser.promotionApiConfigured?'':'<div class="promotion-config-warning">A identificação de patente pode ser exibida, mas a promoção real ainda exige configurar a variável secreta ROBLOX_OPEN_CLOUD_API_KEY no Render.</div>'}
+     </section>
+     <aside class="promotion-card promotion-rules"><strong>Regras de promoção</strong><ul><li>O site consulta a patente atual no grupo do Roblox.</li><li>Cada militar sobe apenas uma posição na sequência configurada em <code>cargos_eb.json</code>.</li><li>Elite Real, Comando, Administração e todos os cargos da faixa protegida até Criador não podem receber promoção.</li><li>Você não pode promover a própria conta.</li><li>A chave Open Cloud fica no Render, nunca no navegador.</li><li>Foto e observações são anexadas ao registro de cada envio.</li></ul></aside>
+    </div>
+    <section class="promotion-card" style="grid-column:1/-1;margin-top:15px"><h3>Últimas entregas de patente</h3><div id="promotionHistory" class="promotion-history"></div></section>`;
+   $('#addMilitary').addEventListener('click',async()=>{
+     const input=$('#militaryUsername');const username=input.value.trim();if(!username){setPromotionMessage('Digite o nome de usuário do militar.','error');return;}
+     if(promotionTargets.length>=1){setPromotionMessage('O intervalo global é de 30 minutos: promova um militar por vez.','error');return;}
+     const button=$('#addMilitary');button.disabled=true;button.textContent='Consultando...';
+     try{
+       const d=await apiPost('/api/promotions/lookup',{username});
+       if(promotionTargets.some(t=>t.id===d.target.id)){setPromotionMessage('Este militar já está na lista.','error');return;}
+       promotionTargets.push(d.target);refreshTargetList();input.value='';
+       const blockers=[];if(d.target.blocked)blockers.push('cargo protegido');if(d.target.inCdp)blockers.push('está Em CDP');if(!d.target.hoursMet)blockers.push(`tem ${d.target.hoursCompleted}h; exige ${d.target.hoursRequired}h de CDP`);
+       const detail=`${d.target.username}: patente atual ${d.target.currentRole}. Próxima: ${d.target.nextRole||'não definida'}.`+(blockers.length?' Bloqueio: '+blockers.join('; ')+'.':'');
+       setPromotionMessage(detail,blockers.length?'error':'ok');
+     }catch(e){setPromotionMessage(e.message,'error');}
+     finally{button.disabled=false;button.textContent='+ Adicionar militar';}
+   });
+   $('#militaryUsername').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#addMilitary').click();}});
+   $('#trainingPhoto').addEventListener('change',()=>{
+     const file=$('#trainingPhoto').files[0];const preview=$('#trainingPreview');if(!file){preview.classList.remove('visible');return;}
+     if(!/^image\/(jpeg|png|webp)$/.test(file.type)){preview.classList.remove('visible');setPromotionMessage('Use uma imagem JPG, PNG ou WEBP.','error');$('#trainingPhoto').value='';return;}
+     const localUrl=URL.createObjectURL(file);$('#trainingPreviewImg').src=localUrl;$('#trainingPhotoInfo').textContent=file.name+' • '+(file.size/1024).toFixed(0)+' KB • será compactada ao enviar';preview.classList.add('visible');
+   });
+   $('#submitPromotion').addEventListener('click',async()=>{
+     if(!promotionTargets.length){setPromotionMessage('Adicione pelo menos um militar.','error');return;}
+     const observations=$('#promotionObservations').value.trim();if(!observations){setPromotionMessage('Escreva as observações do treinamento.','error');$('#promotionObservations').focus();return;}
+     const button=$('#submitPromotion');button.disabled=true;button.textContent='PROCESSANDO PROMOÇÃO...';
+     try{
+       const photo=await compressImage($('#trainingPhoto').files[0]);
+       const result=await apiPost('/api/promotions/submit',{militaryIds:promotionTargets.map(t=>t.id),observations,photoDataUrl:photo});
+       const lines=(result.results||[]).map(r=>(r.status==='success'?'✓ ':'✗ ')+r.username+': '+r.message).join('\n');
+       setPromotionMessage(`Resultado: ${result.successCount} de ${result.total} promovido(s).\n${lines}\nRegistro guardado no servidor: ${result.recordSaved?'sim':'não'}.` ,result.successCount?'ok':'error');
+       if(result.successCount){promotionTargets.splice(0,promotionTargets.length,...promotionTargets.filter(t=>!(result.results||[]).some(r=>r.status==='success'&&r.userId===t.id)));refreshTargetList();loadPromotionHistory();}
+     }catch(e){setPromotionMessage(e.message,'error');}
+     finally{button.disabled=false;button.textContent='REGISTRAR TREINO E PROMOVER';}
+   });
+   refreshTargetList();loadPromotionHistory();
+ }
+ function renderPromotionModuleHistoryOnly(){
+   const grid=$('#moduleGrid');if(!grid)return;
+   grid.innerHTML='<section class="promotion-card" style="grid-column:1/-1"><h3>Histórico das promoções</h3><div id="promotionHistory" class="promotion-history"></div></section>';
+   loadPromotionHistory();
+ }
+ async function renderCdpModule(){
+  const grid=$('#moduleGrid');if(!grid)return;
+  grid.innerHTML='<div class="module-card"><strong>Carregando seu CDP...</strong><span>Consultando o servidor.</span></div>';
+  let selfCdp=null;
+  try{const r=await fetch('/api/cdp/me',{credentials:'same-origin'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Não foi possível consultar o CDP.');selfCdp=d.cdp;}catch(err){grid.innerHTML='';const card=document.createElement('div');card.className='module-card';const b=document.createElement('strong');b.textContent='CDP indisponível';const span=document.createElement('span');span.textContent=err.message;card.append(b,span);grid.append(card);return;}
+  grid.innerHTML=`<section class="promotion-card" style="grid-column:1/-1"><h3>Meu CDP</h3><div class="module-grid" id="myCdpStats"></div><p style="margin-top:12px;color:#ddd">As horas abaixo são creditadas pelo registro de treinamento, não pelo tempo total conectado ao jogo.</p></section><section class="promotion-card" style="grid-column:1/-1"><h3>Registrar horas de CDP</h3><p style="margin-bottom:14px;color:#ddd">Área restrita a cargos autorizados. Registre as horas concluídas e o status Em CDP.</p><div class="promotion-field"><label for="cdpUsername">Nome de usuário Roblox do militar</label><input id="cdpUsername" type="text" autocomplete="off" placeholder="Nome de usuário do militar"></div><div class="promotion-field"><label for="cdpHours">Horas a adicionar</label><input id="cdpHours" type="number" min="0" step="0.25" value="0" placeholder="Ex.: 1.5"></div><div class="promotion-field"><label for="cdpStatus">Status Em CDP</label><select id="cdpStatus"><option value="unchanged">Não alterar o status</option><option value="active">Colocar Em CDP (bloqueia promoções)</option><option value="inactive">Retirar de CDP</option></select></div><div class="promotion-field"><label for="cdpObservations">Observações</label><textarea id="cdpObservations" placeholder="Observações do registro"></textarea></div><button class="promotion-button promotion-submit" id="updateCdp" type="button">SALVAR REGISTRO CDP</button><div class="promotion-message" id="cdpMessage" role="status" aria-live="polite"></div></section>`;
+  const stats=$('#myCdpStats');
+  const statItems=[['Patente',selfCdp.roleName],['Horas creditadas',`${selfCdp.hoursCompleted} h`],['Horas requeridas',selfCdp.hoursRequired==null?'Não configurado':`${selfCdp.hoursRequired} h`],['Horas restantes',selfCdp.hoursRemaining==null?'—':`${selfCdp.hoursRemaining} h`],['Status',selfCdp.status]];
+  stats.replaceChildren(...statItems.map(([title,value])=>{const card=document.createElement('div');card.className='module-card';const strong=document.createElement('strong');strong.textContent=title;const span=document.createElement('span');span.textContent=value;card.append(strong,span);return card}));
+  const message=$('#cdpMessage');const show=(text,type)=>{message.textContent=text;message.className='promotion-message visible '+type};
+  $('#updateCdp').addEventListener('click',async()=>{
+   const button=$('#updateCdp');button.disabled=true;button.textContent='SALVANDO...';
+   try{const d=await apiPost('/api/cdp/update',{username:$('#cdpUsername').value.trim(),hoursToAdd:$('#cdpHours').value,cdpStatus:$('#cdpStatus').value,observations:$('#cdpObservations').value});show(`${d.message} ${d.cdp.username}: ${d.cdp.hoursCompleted}h / ${d.cdp.hoursRequired==null?'requisito não configurado':d.cdp.hoursRequired+'h'}. Status: ${d.cdp.status}.`,'ok');$('#cdpUsername').value='';$('#cdpHours').value='0';$('#cdpStatus').value='unchanged';$('#cdpObservations').value='';}
+   catch(e){show(e.message,'error');}finally{button.disabled=false;button.textContent='SALVAR REGISTRO CDP';}
+  });
+ }
+
+ function htmlEscape(value){return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+ function cardMessage(text,type='info'){return `<div class="module-card"><strong>${htmlEscape(type==='error'?'Atenção':'Informação')}</strong><span>${htmlEscape(text)}</span></div>`;}
+ function renderHistoryPage(endpoint,title){
+  const grid=$('#moduleGrid'); grid.innerHTML=`<section class="promotion-card" style="grid-column:1/-1"><h3>${htmlEscape(title)}</h3><div id="moduleHistoryList" class="promotion-history">Carregando...</div></section>`;
+  (async()=>{const holder=$('#moduleHistoryList');try{const r=await fetch(endpoint,{credentials:'same-origin'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Não foi possível consultar o histórico.');holder.replaceChildren();const events=d.events||d.records||[];if(!events.length){holder.textContent='Ainda não há registros.';return;}events.forEach(e=>{const c=document.createElement('div');c.className='promotion-history-item';const titleEl=document.createElement('strong');titleEl.textContent=e.kind==='promotion'?`${e.division||'EB'} • ${e.username||e.targetUsername||'Militar'}: ${e.fromRole||'—'} → ${e.toRole||'—'}`:e.kind==='cde-role-assigned'?`CDE • ${e.targetUsername||'Militar'} recebeu ${e.roleName||'cargo'} em ${e.division||'divisão'}`:`${e.groupName||e.division||'Grupo'} • ${e.kind||e.action||'Registro'}`;const meta=document.createElement('span');meta.textContent=`${e.createdAt?new Date(e.createdAt).toLocaleString('pt-BR'):'Data não registrada'} • Responsável: ${e.actor||'—'}`;c.append(titleEl,meta);if(e.observations){const p=document.createElement('p');p.textContent='Observações: '+e.observations;c.append(p)}holder.append(c)});}catch(e){holder.textContent=e.message;}})();
+ }
+ async function renderHierarchyModule(){
+  const grid=$('#moduleGrid');grid.innerHTML='<div class="module-card"><strong>Carregando hierarquia...</strong></div>';
+  try{const r=await fetch('/api/hierarchy',{credentials:'same-origin'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Não foi possível carregar hierarquia.');grid.replaceChildren();
+   const main=document.createElement('section');main.className='promotion-card';main.style.gridColumn='1/-1';const h=document.createElement('h3');h.textContent='Exército Brasileiro • Grupo '+d.groupId;main.append(h);const note=document.createElement('p');note.textContent='A lista mostra todos os cargos fornecidos, incluindo Visitante. Muitos ranks no JSON original são iguais a 1; a ordem exibida não substitui uma conferência da hierarquia real no Roblox.';main.append(note);
+   const table=document.createElement('div');table.className='promotion-history';(d.mainRoles||[]).forEach((role,i)=>{const row=document.createElement('div');row.className='promotion-history-item';const b=document.createElement('strong');b.textContent=(i+1)+'. '+role.name;const meta=document.createElement('span');meta.textContent='Role ID: '+role.roleId+' • rank: '+role.rank;row.append(b,meta);table.append(row)});main.append(table);grid.append(main);
+   (d.divisions||[]).forEach(div=>{const sec=document.createElement('section');sec.className='promotion-card';sec.style.gridColumn='1/-1';const title=document.createElement('h3');title.textContent=div.name+' • Grupo '+div.groupId;sec.append(title);const list=document.createElement('div');list.className='promotion-history';(div.roles||[]).forEach((role,i)=>{const row=document.createElement('div');row.className='promotion-history-item';const b=document.createElement('strong');b.textContent=(i+1)+'. '+role.name;const meta=document.createElement('span');meta.textContent='Role ID: '+role.roleId+' • rank: '+role.rank;row.append(b,meta);list.append(row)});sec.append(list);grid.append(sec)});
+  }catch(e){grid.innerHTML=cardMessage(e.message,'error')}
+ }
+ async function renderRankingModule(){
+  if(rankingRefreshTimer){clearInterval(rankingRefreshTimer);rankingRefreshTimer=null;}
+  const grid=$('#moduleGrid');grid.innerHTML=`<section class="promotion-card" style="grid-column:1/-1"><h3>Ranking de treinamentos</h3><p>Atualização automática a cada 60 segundos.</p><div id="rankingUpdated" style="margin:8px 0;color:#ddd">Carregando ranking...</div><div id="rankingTable" class="promotion-history"></div></section>`;
+  if(currentUser?.canManageStaff){const form=document.createElement('section');form.className='promotion-card';form.style.gridColumn='1/-1';form.innerHTML=`<h3>Registrar treinamento concluído</h3><div class="promotion-field"><label for="rankUser">Nome de usuário Roblox</label><input id="rankUser" type="text" autocomplete="off" placeholder="Nome de usuário do militar"></div><div class="promotion-field"><label for="rankTrainingName">Nome do treinamento</label><input id="rankTrainingName" type="text" placeholder="Ex.: Treinamento de formação"></div><div class="promotion-field"><label for="rankTrainingNotes">Observações</label><textarea id="rankTrainingNotes" placeholder="Observações do treinamento"></textarea></div><button class="promotion-button promotion-submit" id="rankAddTraining" type="button">REGISTRAR TREINAMENTO</button><div id="rankTrainingMsg" class="promotion-message" role="status"></div>`;grid.append(form);$('#rankAddTraining').addEventListener('click',async()=>{const btn=$('#rankAddTraining'),msg=$('#rankTrainingMsg');btn.disabled=true;btn.textContent='REGISTRANDO...';try{const d=await apiPost('/api/trainings/record',{username:$('#rankUser').value.trim(),trainingName:$('#rankTrainingName').value,observations:$('#rankTrainingNotes').value});msg.textContent=d.message;msg.className='promotion-message visible ok';$('#rankUser').value='';$('#rankTrainingName').value='';$('#rankTrainingNotes').value='';await loadRanking();}catch(e){msg.textContent=e.message;msg.className='promotion-message visible error';}finally{btn.disabled=false;btn.textContent='REGISTRAR TREINAMENTO';}})}
+  async function loadRanking(){const table=$('#rankingTable');if(!table)return;try{const r=await fetch('/api/ranking',{credentials:'same-origin'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Erro ao consultar ranking');table.replaceChildren();const updated=$('#rankingUpdated');if(updated)updated.textContent=`${d.totalTrainings||0} treinamentos registrados • Atualizado ${new Date(d.updatedAt).toLocaleTimeString('pt-BR')}`;if(!(d.ranking||[]).length){table.textContent='Nenhum treinamento foi registrado ainda.';return;}d.ranking.forEach(item=>{const row=document.createElement('div');row.className='promotion-history-item';const b=document.createElement('strong');b.textContent=`${item.position}º lugar • ${item.username} — ${item.count} treinamento(s)`;const meta=document.createElement('span');meta.textContent='Último treinamento: '+(item.lastTrainingAt?new Date(item.lastTrainingAt).toLocaleString('pt-BR'):'—');row.append(b,meta);table.append(row)});}catch(e){table.textContent=e.message;}}
+  await loadRanking();rankingRefreshTimer=setInterval(()=>{if(document.querySelector('#rankingTable'))loadRanking();},60000);
+ }
+ function populateJoinNomenclature(selectEl, groupId, config) {
+  if (!selectEl) return;
+  selectEl.replaceChildren();
+  const gid = Number(groupId);
+  const group = Number(config?.mainGroup?.groupId) === gid
+    ? config.mainGroup
+    : (config?.divisions || []).find(item => Number(item.groupId) === gid);
+  const allowed = new Set((group?.joinRoleIds || []).map(value => String(value)));
+  const roles = (group?.roles || []).filter(role => allowed.has(String(role.roleId ?? role.id)));
+  if (!roles.length) {
+    const option = document.createElement('option'); option.value = ''; option.textContent = 'Nomenclatura de entrada não configurada'; option.disabled = true; option.selected = true; selectEl.append(option); return;
+  }
+  roles.forEach((role, index) => {
+    const option = document.createElement('option');
+    option.value = String(role.roleId ?? role.id);
+    option.textContent = role.name + ' — Role ID ' + option.value;
+    if (index === 0) option.selected = true;
+    selectEl.append(option);
+  });
+ }
+ async function submitAcceptByUsername(groupSelect, usernameInput, nomenclatureSelect, button, msg, listHolder, listMsg) {
+  const groupId = Number(groupSelect.value), username = usernameInput.value.trim(), roleId = nomenclatureSelect.value;
+  if (!username) { msg.textContent = 'Digite o nome de usuário Roblox da pessoa.'; msg.className = 'promotion-message visible error'; usernameInput.focus(); return; }
+  if (!roleId) { msg.textContent = 'Escolha uma nomenclatura de entrada válida.'; msg.className = 'promotion-message visible error'; return; }
+  button.disabled = true; const original = button.textContent; button.textContent = 'VERIFICANDO SOLICITAÇÃO...';
+  msg.textContent = ''; msg.className = 'promotion-message';
+  try {
+    const result = await apiPost('/api/groups/join-requests/decision', {groupId, username, roleId, decision:'accept'});
+    msg.textContent = result.message || 'Solicitação aceita.'; msg.className = 'promotion-message visible ok';
+    usernameInput.value = '';
+    await loadJoinRequests(String(groupId), listHolder, listMsg);
+  } catch (error) {
+    msg.textContent = error.message; msg.className = 'promotion-message visible error';
+  } finally { button.disabled = false; button.textContent = original; }
+ }
+ async function renderDivisionPromotionModule(){
+  const grid=$('#moduleGrid');grid.innerHTML='<div class="module-card"><strong>Carregando divisões...</strong></div>';
+  try {
+   const r=await fetch('/api/divisions/config',{credentials:'same-origin'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Não foi possível carregar divisões.');
+   const all=d.divisions||[];const permitted=all.filter(x=>(currentUser?.divisionPromoterCodes||[]).includes(x.code));grid.innerHTML='';
+   if(permitted.length){
+    const promo=document.createElement('section');promo.className='promotion-card';promo.style.gridColumn='1/-1';
+    promo.innerHTML=`<h3>Promoção por Divisões</h3><p>Somente os cargos autorizados na respectiva divisão podem promover. A nomenclatura e o próximo cargo vêm da configuração do grupo.</p><div class="promotion-field"><label for="divisionSelect">Divisão</label><select id="divisionSelect"></select></div><div class="promotion-field"><label for="divisionUsername">Nome de usuário do militar</label><input id="divisionUsername" type="text" placeholder="Nome de usuário Roblox"></div><button class="promotion-button promotion-submit" id="divisionPromote" type="button">PROMOVER NA DIVISÃO</button><div id="divisionPromoteMsg" class="promotion-message" role="status"></div>`;
+    grid.append(promo);const select=$('#divisionSelect');
+    permitted.forEach(x=>{const o=document.createElement('option');o.value=x.code;o.textContent=x.code+' — '+x.name+' (Grupo '+x.groupId+')';select.append(o)});
+    $('#divisionPromote').addEventListener('click',async()=>{const btn=$('#divisionPromote'),msg=$('#divisionPromoteMsg');btn.disabled=true;btn.textContent='PROMOVENDO...';try{const result=await apiPost('/api/divisions/promote',{division:select.value,username:$('#divisionUsername').value.trim()});msg.textContent=result.message||`Promovido para ${result.toRole}.`;msg.className='promotion-message visible ok';$('#divisionUsername').value='';}catch(e){msg.textContent=e.message;msg.className='promotion-message visible error';}finally{btn.disabled=false;btn.textContent='PROMOVER NA DIVISÃO';}})
+   } else {grid.append(cardMessage(currentUser?.cdeAccess?'Seu acesso CDE permite gerenciar pedidos nos grupos, mas a promoção normal continua sujeita à autorização da divisão.':'Seu cargo não está autorizado a promover nas divisões. Para promover, você precisa do cargo permitido no grupo da própria divisão.'));}
+   const allowedForRequests=currentUser?.cdeAccess?all:permitted;
+   const reqSec=document.createElement('section');reqSec.className='promotion-card';reqSec.style.gridColumn='1/-1';
+   reqSec.innerHTML=`<h3>Aceitar pessoas nos grupos</h3><p>Escolha o grupo pela nomenclatura oficial. A pessoa precisa ter enviado uma solicitação de entrada no Roblox. Você pode localizar o pedido pelo nome de usuário e escolher a nomenclatura inicial.</p><div class="promotion-field"><label for="divisionRequestGroup">Grupo / divisão</label><select id="divisionRequestGroup"></select></div><div class="promotion-field"><label for="divisionRequestUsername">Nome de usuário Roblox</label><input id="divisionRequestUsername" type="text" autocomplete="off" placeholder="Username exato, sem @"></div><div class="promotion-field"><label for="divisionRequestNomenclature">Nomenclatura de entrada</label><select id="divisionRequestNomenclature"></select></div><button class="promotion-button promotion-submit" id="divisionAcceptByName" type="button">ACEITAR PELO NOME</button><div id="divisionAcceptByNameMsg" class="promotion-message" role="status"></div><hr style="border:0;border-top:1px solid rgba(255,255,255,.12);margin:18px 0"><button class="promotion-button secondary" id="loadDivisionRequests" type="button">CARREGAR SOLICITAÇÕES PENDENTES</button><div id="divisionRequests" class="promotion-history" style="margin-top:12px"></div><div id="divisionRequestsMsg" class="promotion-message" role="status"></div>`;
+   grid.append(reqSec);const rsel=$('#divisionRequestGroup'),nsel=$('#divisionRequestNomenclature');
+   allowedForRequests.forEach(x=>{const o=document.createElement('option');o.value=x.groupId;o.textContent=x.code+' — '+x.name+' (Grupo '+x.groupId+')';rsel.append(o)});
+   function refillNomenclature(){populateJoinNomenclature(nsel,rsel.value,d)}
+   rsel.addEventListener('change',refillNomenclature);refillNomenclature();
+   $('#divisionAcceptByName').addEventListener('click',()=>submitAcceptByUsername(rsel,$('#divisionRequestUsername'),nsel,$('#divisionAcceptByName'),$('#divisionAcceptByNameMsg'),'#divisionRequests','#divisionRequestsMsg'));
+   $('#loadDivisionRequests').addEventListener('click',()=>loadJoinRequests(rsel.value,'#divisionRequests','#divisionRequestsMsg'));
+  }catch(e){grid.innerHTML=cardMessage(e.message,'error')}
+ }
+ async function loadJoinRequests(groupId,holderSelector,msgSelector){const holder=$(holderSelector),msg=$(msgSelector);if(!holder)return;holder.textContent='Consultando solicitações...';if(msg){msg.textContent='';msg.className='promotion-message'}try{const r=await fetch('/api/groups/join-requests?groupId='+encodeURIComponent(groupId),{credentials:'same-origin'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Não foi possível consultar solicitações.');holder.replaceChildren();if(!(d.requests||[]).length){holder.textContent='Nenhuma solicitação pendente.';return;}d.requests.forEach(req=>{const card=document.createElement('div');card.className='promotion-history-item';const title=document.createElement('strong');title.textContent=req.username+' (@'+req.userId+')';const meta=document.createElement('span');meta.textContent='Solicitação '+req.requestId+(req.createdAt?' • '+req.createdAt:'');const actions=document.createElement('div');actions.className='promotion-row';for(const [decision,label] of [['accept','ACEITAR'],['decline','RECUSAR']]){const b=document.createElement('button');b.type='button';b.className='promotion-button '+(decision==='accept'?'promotion-submit':'secondary');b.textContent=label;b.addEventListener('click',async()=>{b.disabled=true;try{const result=await apiPost('/api/groups/join-requests/decision',{groupId:Number(groupId),requestId:req.requestId,decision});if(msg){msg.textContent=result.message;msg.className='promotion-message visible ok'}card.remove()}catch(e){if(msg){msg.textContent=e.message;msg.className='promotion-message visible error'}b.disabled=false}});actions.append(b)}card.append(title,meta,actions);holder.append(card)});}catch(e){holder.textContent=e.message;}}
+ async function renderCdeModule(){
+  const grid=$('#moduleGrid');if(!currentUser?.cdeAccess){grid.innerHTML=cardMessage('Acesso negado. Este painel exige o cargo 908892004 no grupo EB 13616747.','error');return;}
+  grid.innerHTML='<div class="module-card"><strong>Carregando opções do CDE...</strong></div>';
+  try{const r=await fetch('/api/divisions/config',{credentials:'same-origin'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Não foi possível carregar configurações.');const all=d.divisions||[];grid.innerHTML='';const assign=document.createElement('section');assign.className='promotion-card';assign.style.gridColumn='1/-1';assign.innerHTML=`<h3>Painel CDE — atribuir cargo</h3><p>O CDE pode atribuir cargos até o limite configurado em cada divisão (Dono quando existe; BIP usa o limite listado na configuração). A alteração real depende da chave Open Cloud e das permissões do grupo.</p><div class="promotion-field"><label for="cdeDivision">Divisão</label><select id="cdeDivision"></select></div><div class="promotion-field"><label for="cdeUser">Nome de usuário Roblox</label><input id="cdeUser" type="text" placeholder="Nome de usuário do militar"></div><div class="promotion-field"><label for="cdeRole">Cargo para atribuir</label><select id="cdeRole"></select></div><button class="promotion-button promotion-submit" id="cdeAssign" type="button">ATRIBUIR CARGO</button><div id="cdeAssignMsg" class="promotion-message" role="status"></div>`;grid.append(assign);const ds=$('#cdeDivision'),rs=$('#cdeRole');all.forEach(x=>{const o=document.createElement('option');o.value=x.code;o.textContent=x.code+' — '+x.name;ds.append(o)});function fillRoles(){rs.replaceChildren();const div=all.find(x=>x.code===ds.value);if(!div)return;const ids=div.promotionOrderRoleIds||[],maxIndex=ids.indexOf(Number(div.cdeMaxRoleId));const limitNote=div.cdeMaxRoleName?`Limite: ${div.cdeMaxRoleName}`:'';const desc=assign.querySelector('p');if(desc)desc.textContent='O CDE pode atribuir cargos até o limite configurado em cada divisão. '+limitNote+'. A alteração real depende da chave Open Cloud e das permissões do grupo.';div.roles.filter(role=>{const idx=ids.indexOf(Number(role.roleId));return idx>=0&&maxIndex>=0&&idx<=maxIndex}).forEach(role=>{const o=document.createElement('option');o.value=role.roleId;o.textContent=role.name;rs.append(o)})}ds.addEventListener('change',fillRoles);fillRoles();$('#cdeAssign').addEventListener('click',async()=>{const btn=$('#cdeAssign'),msg=$('#cdeAssignMsg');btn.disabled=true;btn.textContent='ATRIBUINDO...';try{const out=await apiPost('/api/cde/assign-role',{division:ds.value,username:$('#cdeUser').value.trim(),roleId:rs.value});msg.textContent=out.message;msg.className='promotion-message visible ok';}catch(e){msg.textContent=e.message;msg.className='promotion-message visible error';}finally{btn.disabled=false;btn.textContent='ATRIBUIR CARGO';}});
+   const reqSec=document.createElement('section');reqSec.className='promotion-card';reqSec.style.gridColumn='1/-1';reqSec.innerHTML=`<h3>Aceitar pessoas nos grupos</h3><p>Escolha o grupo pela nomenclatura oficial. A pessoa precisa ter enviado uma solicitação de entrada no Roblox. Você pode localizar o pedido pelo nome de usuário e escolher a nomenclatura inicial.</p><div class="promotion-field"><label for="cdeRequestGroup">Grupo / divisão</label><select id="cdeRequestGroup"></select></div><div class="promotion-field"><label for="cdeRequestUsername">Nome de usuário Roblox</label><input id="cdeRequestUsername" type="text" autocomplete="off" placeholder="Username exato, sem @"></div><div class="promotion-field"><label for="cdeRequestNomenclature">Nomenclatura de entrada</label><select id="cdeRequestNomenclature"></select></div><button class="promotion-button promotion-submit" id="cdeAcceptByName" type="button">ACEITAR PELO NOME</button><div id="cdeAcceptByNameMsg" class="promotion-message" role="status"></div><hr style="border:0;border-top:1px solid rgba(255,255,255,.12);margin:18px 0"><button class="promotion-button secondary" id="cdeLoadRequests" type="button">CARREGAR SOLICITAÇÕES PENDENTES</button><div id="cdeRequests" class="promotion-history" style="margin-top:12px"></div><div id="cdeRequestsMsg" class="promotion-message" role="status"></div>`;grid.append(reqSec);const csel=$('#cdeRequestGroup'),cnsel=$('#cdeRequestNomenclature');const main=d.mainGroup||{code:'EB',name:'Exército Brasileiro',groupId:13616747,roles:[],joinRoleIds:[843650047]};const mainOption=document.createElement('option');mainOption.value=String(main.groupId);mainOption.textContent=main.code+' — '+main.name+' (Grupo '+main.groupId+')';csel.append(mainOption);all.forEach(x=>{const o=document.createElement('option');o.value=x.groupId;o.textContent=x.code+' — '+x.name+' (Grupo '+x.groupId+')';csel.append(o)});function refillCdeJoinNomenclature(){populateJoinNomenclature(cnsel,csel.value,d)}csel.addEventListener('change',refillCdeJoinNomenclature);refillCdeJoinNomenclature();$('#cdeAcceptByName').addEventListener('click',()=>submitAcceptByUsername(csel,$('#cdeRequestUsername'),cnsel,$('#cdeAcceptByName'),$('#cdeAcceptByNameMsg'),'#cdeRequests','#cdeRequestsMsg'));$('#cdeLoadRequests').addEventListener('click',()=>loadJoinRequests(csel.value,'#cdeRequests','#cdeRequestsMsg'));
+  }catch(e){grid.innerHTML=cardMessage(e.message,'error')}
+ }
+
+ async function renderCgexModule(){
+  const grid=$('#moduleGrid');if(!grid)return;
+  grid.innerHTML='<div class="module-card"><strong>Carregando painel CGEx...</strong><span>Conferindo sua autorização e as patentes disponíveis.</span></div>';
+  try{
+   const r=await fetch('/api/cgex/config',{credentials:'same-origin'});
+   const data=await r.json();
+   if(!r.ok)throw new Error(data.error||'Você não tem acesso ao painel CGEx.');
+   grid.innerHTML='';
+   const form=document.createElement('section');form.className='promotion-card';form.style.gridColumn='1/-1';
+   form.innerHTML=`<h3>CGEx — Atribuir patente</h3>
+    <p>Informe o nome de usuário Roblox e selecione a patente de Recruta até Marechal. Vice Presidente e Presidente não aparecem na lista. O servidor valida seu cargo no grupo EB antes de realizar qualquer alteração.</p>
+    <div class="promotion-field"><label for="cgexUsername">Nome de usuário do militar</label><input id="cgexUsername" type="text" autocomplete="off" placeholder="Ex.: NomeDoMilitar" maxlength="20"></div>
+    <div class="promotion-field"><label for="cgexTargetRole">Patente que será atribuída</label><select id="cgexTargetRole"><option value="">Carregando patentes...</option></select></div>
+    <button class="promotion-button promotion-submit" id="cgexAssignRole" type="button">ATRIBUIR PATENTE</button>
+    <div class="promotion-message" id="cgexAssignMessage" role="status" aria-live="polite"></div>
+    <div class="promotion-config-warning">Regras: acesso apenas para CGEx, Sub Criador ou Criador no grupo EB; militar em CDP não pode receber alteração; intervalo global de 30 minutos entre alterações. A chave Open Cloud precisa permitir atribuir e remover cargos no grupo.</div>`;
+   grid.append(form);
+   const select=$('#cgexTargetRole');select.replaceChildren();
+   (data.roles||[]).forEach(role=>{const opt=document.createElement('option');opt.value=String(role.roleId);opt.textContent=role.name;select.append(opt)});
+   if(!select.options.length)throw new Error('Nenhuma patente permitida foi encontrada em cargos_eb.json.');
+   const msg=$('#cgexAssignMessage');const show=(text,type)=>{msg.textContent=text;msg.className='promotion-message visible '+type};
+   $('#cgexAssignRole').addEventListener('click',async()=>{
+    const button=$('#cgexAssignRole');const username=$('#cgexUsername').value.trim();const roleId=select.value;
+    if(!username){show('Digite o nome de usuário Roblox.','error');$('#cgexUsername').focus();return;}
+    if(!roleId){show('Selecione uma patente.','error');select.focus();return;}
+    button.disabled=true;button.textContent='ATRIBUINDO PATENTE...';
+    try{const out=await apiPost('/api/cgex/assign-role',{username,roleId});show(out.message||'Patente atribuída com sucesso.','ok');}
+    catch(error){show(error.message,'error');}
+    finally{button.disabled=false;button.textContent='ATRIBUIR PATENTE';}
+   });
+   $('#cgexUsername').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();$('#cgexAssignRole').click()}});
+   if(!data.apiConfigured){show('A chave Open Cloud ainda não está configurada no Render. O painel aparece, mas não pode alterar cargos até configurar ROBLOX_OPEN_CLOUD_API_KEY.','error');}
+  }catch(error){grid.replaceChildren();const card=document.createElement('section');card.className='promotion-card';card.style.gridColumn='1/-1';const h=document.createElement('h3');h.textContent='Painel CGEx';const p=document.createElement('p');p.textContent=error.message;card.append(h,p);grid.append(card);}
+ }
+
+ function activatePage(page,home){
+  $$('.main-link,.shortcut,.nav-tile,.action-button,.gold-button').forEach(el=>el.classList.toggle('active',el.dataset.page===page));
+  if(rankingRefreshTimer && page!=='Ranking'){clearInterval(rankingRefreshTimer);rankingRefreshTimer=null;}
+  if(home||page==='Início'){$('#homeContent').style.display='block';$('#moduleContent').classList.remove('visible');$('#pageHeading').textContent='Início';$('#pageDescription').textContent=moduleDescriptions['Início'];if(window.innerWidth<=760){sidebar.classList.add('mobile-hidden');main.classList.add('mobile-open')}return}
+  $('#homeContent').style.display='none';$('#moduleContent').classList.add('visible');$('#moduleHeading').textContent=page;$('#moduleDescription').textContent=moduleDescriptions[page]||'Esta área faz parte do portal EB Manager. As funções administrativas precisam ser vinculadas às permissões do servidor.';
+  const items={
+   'Meu perfil':[['Conta Roblox',currentUser.displayName||currentUser.username],['Nome de usuário','@'+currentUser.username],['ID do Roblox',String(currentUser.id)],['Status','Verificado']],
+   'Subir de patente':[['Próxima patente','Consulte o Alto Comando'],['Requisitos','Sujeitos às regras internas'],['Status','Informativo']],
+   'Hierarquia':[['Oficiais','Patentes e funções'],['Praças','Patentes e funções'],['Divisões','Estrutura do efetivo']],
+   'Capacitação (CDP)':[['Cursos','Conteúdos de capacitação'],['Treinos','Atividades registradas'],['Progresso','Consulte seu histórico']],
+   'Bugs e Ideias':[['Reportar problema','Prepare uma descrição clara'],['Enviar sugestão','Explique sua ideia'],['Suporte','Procure os canais oficiais']],
+  };
+  let cards=items[page]||[['Área do portal','Módulo '+page],['Permissões','Podem variar conforme a função'],['Integração','Conexão administrativa necessária']];
+  if(page==='Entregar Patente'){renderPromotionModule();}
+  else if(page==='Registro de Ações'){renderPromotionModuleHistoryOnly();}
+  else if(page==='Capacitação (CDP)'){renderCdpModule();}
+  else if(page==='Ranking'){renderRankingModule();}
+  else if(page==='Hierarquia'){renderHierarchyModule();}
+  else if(page==='Promoção por Divisões'){renderDivisionPromotionModule();}
+  else if(page==='Painel CDE'){renderCdeModule();}
+  else if(page==='CGEx'){renderCgexModule();}
+  else if(page==='Histórico das Divisões'){renderHistoryPage('/api/divisions/history','Histórico das Divisões');}
+  else if(page==='Histórico de Patentes'){renderPromotionModuleHistoryOnly();}
+  else{$('#moduleGrid').replaceChildren(...cards.map(([title,desc])=>{const div=document.createElement('div');div.className='module-card';const b=document.createElement('strong');b.textContent=title;const s=document.createElement('span');s.textContent=desc;div.append(b,s);return div}));}
+  if(window.innerWidth<=760){sidebar.classList.add('mobile-hidden');main.classList.add('mobile-open');main.scrollTo(0,0)}
+ }
+ $$('[data-page]').forEach(el=>el.addEventListener('click',e=>{if(el.tagName==='A')e.preventDefault();activatePage(el.dataset.page,el.dataset.home==='true')}));
+ $$('.group-title').forEach(button=>button.addEventListener('click',()=>button.closest('.group').classList.toggle('closed')));
+ $('#navSearch').addEventListener('input',e=>{const q=e.target.value.trim().toLocaleLowerCase('pt-BR');$$('.shortcut,.main-link,.nav-tile').forEach(el=>{el.style.display=(!q||el.dataset.page.toLocaleLowerCase('pt-BR').includes(q))?'':'none'});$$('.group').forEach(group=>{const has=Array.from(group.querySelectorAll('.nav-tile')).some(el=>el.style.display!=='none');group.style.display=(!q||has)?'':'none';if(q)group.classList.remove('closed')});});
+ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#navSearch').focus()}if(e.key==='Escape'&&window.innerWidth<=760){sidebar.classList.remove('mobile-hidden');main.classList.remove('mobile-open')}});
+ $('#showMenu').addEventListener('click',()=>{sidebar.classList.remove('mobile-hidden');main.classList.remove('mobile-open')});
+ $('#closeAnnouncement').addEventListener('click',()=>$('#announcement').remove());$('#closePromo').addEventListener('click',()=>$('#promo').remove());
+ $('#notifications').addEventListener('click',()=>showToast('Você está em dia com os avisos do portal.'));
+ $('#refresh').addEventListener('click',()=>location.reload());
+ $$('[data-tool]').forEach(b=>b.addEventListener('click',()=>showToast(b.dataset.tool)));
+ $$('[data-theme]').forEach(b=>b.addEventListener('click',()=>{b.classList.toggle('selected');showToast('Tema do painel selecionado.')}));
+ $('#logout').addEventListener('click',async()=>{try{await fetch('/api/auth/logout',{method:'POST',credentials:'same-origin'})}finally{location.replace('/')}});
+ if(window.innerWidth<=760){sidebar.classList.remove('mobile-hidden');main.classList.remove('mobile-open')}
+})();
+</script>
+</body></html>
