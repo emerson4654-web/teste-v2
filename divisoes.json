@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "source": "IDs e nomes exatamente conforme dados fornecidos pelo usuário",
+  "divisions": [
+    {
+      "code": "BFE",
+      "name": "Batalhão de Forças Especiais (BFE)",
+      "groupId": 645168178,
+      "roles": [
+        {
+          "roleId": 859870098,
+          "name": "Visitante",
+          "rank": 0
+        },
+        {
+          "roleId": 12884901889,
+          "name": "Membro",
+          "rank": 1,
+          "isBase": true
+        },
+        {
+          "roleId": 875293001,
+          "name": "[BFE] Candidatos",
+          "rank": 1
+        },
+        {
+          "roleId": 876089000,
+          "name": "[BFE] Praças",
+          "rank": 1
+        },
+        {
+          "roleId": 875959000,
+          "name": "[BFE] Graduados",
+          "rank": 1
+        },
+        {
+          "roleId": 875119002,
+          "name": "[BFE] Oficiais",
+          "rank": 1
+        },
+        {
+          "roleId": 875087004,
+          "name": "[BFE] Alto Escalão",
+          "rank": 1
+        },
+        {
+          "roleId": 876481000,
+          "name": "[BFE] Subcomandante",
+          "rank": 1
+        },
+        {
+          "roleId": 875087003,
+          "name": "[BFE] Comandante",
+          "rank": 1
+        },
+        {
+          "roleId": 876193001,
+          "name": "[BFE] Supervisor",
+          "rank": 1
+        },
+        {
+          "roleId": 875827001,
+          "name": "[BFE] Supervisor geral",
+          "rank": 1
+        },
+        {
+          "roleId": 876119000,
+          "name": "[BFE] Dono",
+          "rank": 1
+        },
+        {
+          "roleId": 875269005,
+          "name": "[BFE] Criador",
+          "rank": 1
+        },
+        {
+          "roleId": 859870099,
+          "name": "Administrador(a)",
+          "rank": 254
+        }
+      ],
+      "promoterRoleIds": [
+        876481000,
+        875087003,
+        876193001,
+        875827001,
+        876119000,
+        875269005
+      ],
+      "promotionOrderRoleIds": [
+        875293001,
+        876089000,
+        875959000,
+        875119002,
+        875087004,
+        876481000,
+        875087003,
+        876193001,
+        875827001,
+        876119000,
+        875269005
+      ],
+      "cdeMaxRoleId": 876119000,
+      "joinRoleIds": [
+        875293001
+      ]
+    },
+    {
+      "code": "BPE",
+      "name": "Batalhão de Polícia do Exército (BPE)",
+      "groupId": 226820203,
+      "roles": [
+        {
+          "roleId": 876151000,
+          "name": "Visitante",
+          "rank": 0
+        },
+        {
+          "roleId": 12884901889,
+          "name": "Membro",
+          "rank": 1,
+          "isBase": true
+        },
+        {
+          "roleId": 875429002,
+          "name": "[BPE] Candidatos",
+          "rank": 1
+        },
+        {
+          "roleId": 874931002,
+          "name": "[BPE] Praças",
+          "rank": 1
+        },
+        {
+          "roleId": 875585004,
+          "name": "[BPE] Graduados",
+          "rank": 1
+        },
+        {
+          "roleId": 875841000,
+          "name": "[BPE] Oficiais",
+          "rank": 1
+        },
+        {
+          "roleId": 876265001,
+          "name": "[BPE] Alto Escalão",
+          "rank": 1
+        },
+        {
+          "roleId": 875959001,
+          "name": "[BPE] Subcomandante",
+          "rank": 1
+        },
+        {
+          "roleId": 874861003,
+          "name": "[BPE] Comandante",
+          "rank": 1
+        },
+        {
+          "roleId": 875035008,
+          "name": "[BPE]  Supervisor",
+          "rank": 1
+        },
+        {
+          "roleId": 874891001,
+          "name": "[BPE]  Supervisor Geral",
+          "rank": 1
+        },
+        {
+          "roleId": 875845002,
+          "name": "[BPE] Donos",
+          "rank": 1
+        },
+        {
+          "roleId": 875035007,
+          "name": "Criador",
+          "rank": 1
+        },
+        {
+          "roleId": 876151001,
+          "name": "Administrador(a)",
+          "rank": 254
+        }
+      ],
+      "promoterRoleIds": [
+        875959001,
+        874861003,
+        875035008,
+        874891001,
+        875845002,
+        875035007
+      ],
+      "promotionOrderRoleIds": [
+        875429002,
+        874931002,
+        875585004,
+        875841000,
+        876265001,
+        875959001,
+        874861003,
+        875035008,
+        874891001,
+        875845002,
+        875035007
+      ],
+      "cdeMaxRoleId": 875845002,
+      "joinRoleIds": [
+        875429002
+      ]
+    },
+    {
+      "code": "BAC",
+      "name": "Batalhão de Ações de Comandos (BAC)",
+      "groupId": 155494210,
+      "roles": [
+        {
+          "roleId": 878097000,
+          "name": "Visitante",
+          "rank": 0
+        },
+        {
+          "roleId": 12884901889,
+          "name": "Membro",
+          "rank": 1,
+          "isBase": true
+        },
+        {
+          "roleId": 885864073,
+          "name": "[BAC] PRAÇA",
+          "rank": 1
+        },
+        {
+          "roleId": 884938108,
+          "name": "[BAC] GRADUADOS",
+          "rank": 1
+        },
+        {
+          "roleId": 885994101,
+          "name": "[BAC] OFICIAL",
+          "rank": 1
+        },
+        {
+          "roleId": 886030086,
+          "name": "[BAC] ALTO ESCALAO",
+          "rank": 1
+        },
+        {
+          "roleId": 885188112,
+          "name": "[BAC] SUB COMANDANTE",
+          "rank": 1
+        },
+        {
+          "roleId": 885188113,
+          "name": "[BAC] COMANDANTE",
+          "rank": 1
+        },
+        {
+          "roleId": 885918096,
+          "name": "[BAC] SUPERVISOR",
+          "rank": 1
+        },
+        {
+          "roleId": 886382096,
+          "name": "[BAC] SURPERVISOR GERAL",
+          "rank": 1
+        },
+        {
+          "roleId": 888278080,
+          "name": "[BAC] DONOS",
+          "rank": 1
+        },
+        {
+          "roleId": 885108084,
+          "name": "[BAC] CRIADOR",
+          "rank": 1
+        }
+      ],
+      "promoterRoleIds": [
+        885188112,
+        885188113,
+        885918096,
+        886382096,
+        888278080,
+        885108084
+      ],
+      "promotionOrderRoleIds": [
+        885864073,
+        884938108,
+        885994101,
+        886030086,
+        885188112,
+        885188113,
+        885918096,
+        886382096,
+        888278080,
+        885108084
+      ],
+      "cdeMaxRoleId": 888278080,
+      "joinRoleIds": [
+        885864073
+      ]
+    },
+    {
+      "code": "CIE",
+      "name": "Centro de Inteligência do Exército (CIE)",
+      "groupId": 1016070492,
+      "roles": [
+        {
+          "roleId": 859864088,
+          "name": "Visitante",
+          "rank": 0
+        },
+        {
+          "roleId": 12884901889,
+          "name": "Membro",
+          "rank": 1,
+          "isBase": true
+        },
+        {
+          "roleId": 875101003,
+          "name": "[CIE] Estagiários",
+          "rank": 1
+        },
+        {
+          "roleId": 874979002,
+          "name": "[CIE] Agente",
+          "rank": 1
+        },
+        {
+          "roleId": 875169000,
+          "name": "[CIE] Técnico da Inteligência",
+          "rank": 1
+        },
+        {
+          "roleId": 875353001,
+          "name": "[CIE] Agente Pleno",
+          "rank": 1
+        },
+        {
+          "roleId": 875585000,
+          "name": "[CIE] Agente Técnico",
+          "rank": 1
+        },
+        {
+          "roleId": 874817009,
+          "name": "[CIE] Agente Classe alta",
+          "rank": 1
+        },
+        {
+          "roleId": 876287000,
+          "name": "[CIE] Subcomandante",
+          "rank": 1
+        },
+        {
+          "roleId": 875285006,
+          "name": "[CIE] Comandante",
+          "rank": 1
+        },
+        {
+          "roleId": 875451000,
+          "name": "[CIE] Donos",
+          "rank": 1
+        },
+        {
+          "roleId": 875519002,
+          "name": "[CIE] Criador",
+          "rank": 1
+        },
+        {
+          "roleId": 859864089,
+          "name": "Administrador(a)",
+          "rank": 254
+        }
+      ],
+      "promoterRoleIds": [
+        876287000,
+        875285006,
+        875451000,
+        875519002
+      ],
+      "promotionOrderRoleIds": [
+        875101003,
+        874979002,
+        875169000,
+        875353001,
+        875585000,
+        874817009,
+        876287000,
+        875285006,
+        875451000,
+        875519002
+      ],
+      "cdeMaxRoleId": 875451000,
+      "joinRoleIds": [
+        875101003
+      ]
+    },
+    {
+      "code": "CIGS",
+      "name": "Centro de Instrução de Guerra na Selva (CIGS)",
+      "groupId": 874033602,
+      "roles": [
+        {
+          "roleId": 861558063,
+          "name": "Visitante",
+          "rank": 0
+        },
+        {
+          "roleId": 12884901889,
+          "name": "Membro",
+          "rank": 1,
+          "isBase": true
+        },
+        {
+          "roleId": 875023002,
+          "name": "[SELVA] Aluno",
+          "rank": 1
+        },
+        {
+          "roleId": 875227002,
+          "name": "[SELVA] Praças",
+          "rank": 1
+        },
+        {
+          "roleId": 875693000,
+          "name": "[SELVA] Graduados",
+          "rank": 1
+        },
+        {
+          "roleId": 875881005,
+          "name": "[SELVA] Oficiais",
+          "rank": 1
+        },
+        {
+          "roleId": 875143002,
+          "name": "[SELVA] Alto Escalão",
+          "rank": 1
+        },
+        {
+          "roleId": 875585001,
+          "name": "[SELVA] Comandante",
+          "rank": 1
+        },
+        {
+          "roleId": 876497000,
+          "name": "[SELVA] Subomandante",
+          "rank": 1
+        },
+        {
+          "roleId": 876431001,
+          "name": "[SELVA] Supervisor",
+          "rank": 1
+        },
+        {
+          "roleId": 876141002,
+          "name": "[SELVA] Supervisor Geral",
+          "rank": 1
+        },
+        {
+          "roleId": 874877004,
+          "name": "[SELVA] Donos",
+          "rank": 1
+        },
+        {
+          "roleId": 875019002,
+          "name": "Criador",
+          "rank": 1
+        },
+        {
+          "roleId": 861558064,
+          "name": "Administrador(a)",
+          "rank": 254
+        }
+      ],
+      "promoterRoleIds": [
+        875585001,
+        876497000,
+        876431001,
+        876141002,
+        874877004,
+        875019002
+      ],
+      "promotionOrderRoleIds": [
+        875023002,
+        875227002,
+        875693000,
+        875881005,
+        875143002,
+        875585001,
+        876497000,
+        876431001,
+        876141002,
+        874877004,
+        875019002
+      ],
+      "cdeMaxRoleId": 874877004,
+      "joinRoleIds": [
+        875023002
+      ]
+    },
+    {
+      "code": "BIP",
+      "name": "Batalhão de Infantaria Paraquedista (BIP)",
+      "groupId": 981733822,
+      "roles": [
+        {
+          "roleId": 859758065,
+          "name": "Visitante",
+          "rank": 0
+        },
+        {
+          "roleId": 12884901889,
+          "name": "Membro",
+          "rank": 1,
+          "isBase": true
+        },
+        {
+          "roleId": 866150007,
+          "name": "『AL』 Aluno Paraquedista",
+          "rank": 1
+        },
+        {
+          "roleId": 866344005,
+          "name": "『FRD』 Formado",
+          "rank": 1
+        },
+        {
+          "roleId": 867114007,
+          "name": "『PQD』 Pará-quedista",
+          "rank": 1
+        },
+        {
+          "roleId": 906122092,
+          "name": "[SL] SALTADOR LIVRE",
+          "rank": 1
+        },
+        {
+          "roleId": 865514007,
+          "name": "『MS』 Mestre de Salto",
+          "rank": 1
+        },
+        {
+          "roleId": 866468004,
+          "name": "『PP』 Precursor Paraquedista",
+          "rank": 1
+        },
+        {
+          "roleId": 866948005,
+          "name": "『AD』 Adjunto de Comando",
+          "rank": 1
+        },
+        {
+          "roleId": 867150000,
+          "name": "[SUP] Paraquedista Supervisor",
+          "rank": 1
+        },
+        {
+          "roleId": 866638005,
+          "name": "『SUB-CMD』 Subcomandante da Brigada",
+          "rank": 1
+        },
+        {
+          "roleId": 866478010,
+          "name": "『SUP-G』 Paraquedista  Supervisor-Geral",
+          "rank": 1
+        },
+        {
+          "roleId": 865612009,
+          "name": "[CR] BIP",
+          "rank": 1
+        }
+      ],
+      "promoterRoleIds": [
+        866638005,
+        866478010,
+        865612009
+      ],
+      "promotionOrderRoleIds": [
+        866150007,
+        866344005,
+        867114007,
+        906122092,
+        865514007,
+        866468004,
+        866948005,
+        867150000,
+        866638005,
+        866478010,
+        865612009
+      ],
+      "cdeMaxRoleId": 866478010,
+      "joinRoleIds": [
+        866150007
+      ]
+    }
+  ]
+}

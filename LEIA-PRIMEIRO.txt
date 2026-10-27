@@ -1,9 +1,42 @@
-EB Manager — pacote de atualização corrigido
+EB MANAGER — CORREÇÃO DA ABA DIVISIONAIS
 
-Todos os arquivos deste ZIP estão na raiz, sem subpastas. Faça backup do repositório antes de atualizar.
+Este pacote atualiza somente a parte de aceitar membros em grupos e escolher a nomenclatura inicial.
 
-O pacote inclui servidor, login, painel, configs de cargos/divisões, API do CDP e Script Lua para o Roblox. Os arquivos de dados existentes foram deixados de fora para não sobrescrever horas, sessões, histórico e promoções já registrados. Mantenha-os no repositório.
+ARQUIVOS PARA SUBSTITUIR NO GITHUB:
+1. dashboard.html
+2. server.js
+3. divisoes.json
 
-Antes de usar promoções reais: configure as variáveis do Render indicadas em INSTRUCOES_ATUALIZACAO.txt e revise a ordem de cargos de cada divisão; a maioria dos ranks no JSON original veio como 1.
+MANTENHA os outros arquivos do site e as imagens como estão.
+Faça backup antes de substituir. Não apague arquivos de dados existentes, como cdp.json, treinamentos.json, promocoes.json, sessoes.json ou historico-divisoes.json.
 
-Nenhuma chave secreta está incluída.
+O QUE MUDOU:
+- Na aba Promoção por Divisões e no Painel CDE, o grupo é mostrado com nome/código e ID.
+- Agora existe um formulário para localizar uma solicitação pelo nome de usuário Roblox.
+- A nomenclatura de entrada aparece pelo nome do cargo; o servidor aceita somente os cargos de entrada definidos em joinRoleIds no divisoes.json.
+- A lista de solicitações usa paginação e trata os IDs do pedido e do usuário de forma mais robusta.
+- O histórico registra quem aceitou/recusou o pedido, o grupo e a nomenclatura aplicada.
+- A mensagem de erro agora diferencia solicitação ausente e falta de permissões Open Cloud.
+
+CONFIGURAÇÃO DO RENDER:
+- Mantenha ROBLOX_OPEN_CLOUD_API_KEY como variável secreta.
+- A chave deve ter as permissões group:read e group:write nos grupos que você deseja gerenciar.
+- Não coloque a chave no HTML, no GitHub público nem nos scripts locais do jogo.
+
+IMPORTANTE SOBRE ACEITAR PESSOAS:
+A pessoa precisa primeiro enviar uma solicitação para entrar no grupo no próprio Roblox. Este recurso aprova uma solicitação pendente; ele não adiciona contas aleatórias diretamente sem uma solicitação. Se o usuário não pediu para entrar, o site vai mostrar uma mensagem explicando isso.
+
+NOMENCLATURAS DE ENTRADA CONFIGURADAS:
+- Grupo EB (13616747): [REC] Recruta (843650047)
+- BFE (645168178): [BFE] Candidatos (875293001)
+- BPE (226820203): [BPE] Candidatos (875429002)
+- BAC (155494210): [BAC] PRAÇA (885864073)
+- CIE (1016070492): [CIE] Estagiários (875101003)
+- CIGS (874033602): [SELVA] Aluno (875023002)
+- BIP (981733822): 『AL』 Aluno Paraquedista (866150007)
+
+COMO APLICAR:
+1. Extraia o ZIP.
+2. Substitua os 3 arquivos listados acima no repositório do GitHub, todos na raiz.
+3. Faça Commit changes.
+4. Aguarde o Render publicar e teste com uma conta de teste que tenha uma solicitação pendente.
